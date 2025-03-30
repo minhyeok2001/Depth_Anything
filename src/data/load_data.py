@@ -2,6 +2,7 @@
 
 import os
 import glob
+import torch
 
 def get_data_list(dataset_path,teacher=True):
     if teacher:
@@ -32,7 +33,8 @@ class customDataset(torch.utils.data.Dataset):
     def __len__(self):
         if len(self.x_path) == len(self.gt_path):
             return len(self.x_path)
-        else assert "x_path와 gt_path의 길이 불일치 !!"
+        else:
+            assert "x_path와 gt_path의 길이 불일치 !!"
 
     def __getitem__(self,idx):
         # 지금까지 해왓던 일반적인 방식과는 다르게, 여기서 데이터를 "직접 로드"하고 리턴하는 식으로 진행
