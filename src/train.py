@@ -8,7 +8,8 @@ from dotenv import load_dotenv,find_dotenv
 from src.loss.loss_teacher import teacher_loss_function
 import os
 from src.models.model import DepthModel
-from src.data.data_loader_teacher import dataloader
+from src.data.data_loader_teacher import dataloader,val_dataloader
+from torch.optim.lr_scheduler import ExponentialLR
 
 device = device
 
@@ -30,8 +31,10 @@ wandb.login(key=api_key)
 run = wandb.init(project="DepthAnything_teacher",entity="mhroh01-ajou-university",config=hyper_params)
 
 model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
-model.train()
 optimizer = optim.AdamW(model.parameters(), lr=lr)
+scheduler = ExponentialLR(optimizer, gamma=0.95)
+
+wandb.watch(model, log="all")
 
 # dataloader
 
@@ -39,6 +42,7 @@ running_loss = 0.0
 trial = 0
 
 for epoch in range(num_epochs):
+    model.train()
     prev_loss = running_loss
     running_loss = 0.0
 
@@ -52,7 +56,7 @@ for epoch in range(num_epochs):
         #print("inputs: ", inputs)
         #print("outputs: ", outputs)
 
-        loss = teacher_loss_function(outputs, targets, disparity=True)
+        loss = teacher_loss_function(outputs, targets, disparity=False)
         loss.backward()
         optimizer.step()
 
@@ -63,8 +67,25 @@ for epoch in range(num_epochs):
 
     epoch_loss = running_loss / len(dataloader)
     print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {epoch_loss:.4f}")
-    wandb.log({"epoch_loss": epoch_loss, "epoch": epoch+1})
 
+    model.eval()
+    running_val_loss = 0.0
+    with torch.no_grad():
+        for inputs, targets in val_dataloader:
+            inputs, targets = inputs.to(device), targets.to(device)
+            outputs = model(inputs)
+            loss = teacher_loss_function(outputs, targets, disparity=False)
+            running_val_loss += loss.item()
+
+    avg_val_loss = running_val_loss / len(val_dataloader)
+    print(f"Epoch [{epoch+1}/{num_epochs}] Validation Loss: {avg_val_loss:.4f}")
+
+    wandb.log({
+        "train_loss": epoch_loss,
+        "val_loss": avg_val_loss,
+        "epoch": epoch+1
+    })
+    
     if running_loss > prev_loss :
         if patient > trial:
             trial +=1

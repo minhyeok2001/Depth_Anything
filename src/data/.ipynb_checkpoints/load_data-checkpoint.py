@@ -6,15 +6,16 @@ import torch
 from torchvision import transforms
 from PIL import Image
 
-def get_data_list(dataset_path,teacher=True):
+def get_data_list(dataset_path,teacher=True,start_idx=0,end_idx=1600):
     if teacher:
-        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "blended_images", "*_masked.jpg")))
-        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "rendered_depth_maps", "*.pfm")))
+        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "blended_images", "*_masked.jpg")))[start_idx:end_idx]
+        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "rendered_depth_maps", "*.pfm")))[start_idx:end_idx]
     
     else :
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*.jpg")))
         gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth_maps", "*.pfm")))    ## teacher model로부터 만들어지는 pseudo map
-    
+
+    #print(len(input_image_paths))
     return input_image_paths, gt_image_paths
 
 
@@ -38,15 +39,6 @@ class customDataset(torch.utils.data.Dataset):
         else:
             assert "x_path와 gt_path의 길이 불일치 !!"
 
-    def normalize_depth(self,depth_tensor):
-        # depth_tensor: (1, H, W)
-        # min-max normalization per image
-        min_val = depth_tensor.min()
-        max_val = depth_tensor.max()
-        normalized = (depth_tensor - min_val) / (max_val - min_val + 1e-8)
-        return normalized
-
-
     def __getitem__(self,idx):
         # 지금까지 해왓던 일반적인 방식과는 다르게, 여기서 데이터를 "직접 로드"하고 리턴하는 식으로 진행
         x = Image.open(self.x_path[idx]).convert('RGB')
@@ -54,7 +46,6 @@ class customDataset(torch.utils.data.Dataset):
 
         x = self.basic_transformation(x)
         gt = self.basic_transformation(gt)
-        gt = self.normalize_depth(gt)
 
         # if self.transform :
         # TBD.... for student..

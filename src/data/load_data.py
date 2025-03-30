@@ -6,15 +6,16 @@ import torch
 from torchvision import transforms
 from PIL import Image
 
-def get_data_list(dataset_path,teacher=True):
+def get_data_list(dataset_path,teacher=True,start_idx=0,end_idx=1600):
     if teacher:
-        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "blended_images", "*_masked.jpg")))
-        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "rendered_depth_maps", "*.pfm")))
+        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "blended_images", "*_masked.jpg")))[start_idx:end_idx]
+        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "rendered_depth_maps", "*.pfm")))[start_idx:end_idx]
     
     else :
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*.jpg")))
         gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth_maps", "*.pfm")))    ## teacher model로부터 만들어지는 pseudo map
-    
+
+    #print(len(input_image_paths))
     return input_image_paths, gt_image_paths
 
 
