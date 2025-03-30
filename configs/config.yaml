@@ -2,4 +2,4 @@ hyper_parameter:
   epochs: 50
   batch_size: 32
   learning_rate: 0.001
-  optimizer: "Adam"
+  patient: 3

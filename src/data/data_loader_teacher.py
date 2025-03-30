@@ -5,7 +5,7 @@ import imageio.v2 as imageio
 from torchvision import transforms
 from dotenv import load_dotenv,find_dotenv
 from torch.utils.data import DataLoader
-from load_data import get_data_list, customDataset
+from src.data.load_data import get_data_list, customDataset
 import yaml
 
 # env로부터 경로 가져오고, 인풋이미지와 gt 이미지 경로만 로드

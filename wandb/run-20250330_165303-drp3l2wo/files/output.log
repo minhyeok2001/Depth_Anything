@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/minhyeokroh/PycharmProjects/JupyterProject/models/Depth_Anything/src/train.py", line 28, in <module>
+    model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+            ^^^^^^^^^^
+NameError: name 'DepthModel' is not defined
