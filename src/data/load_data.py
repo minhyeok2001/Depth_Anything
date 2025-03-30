@@ -4,6 +4,7 @@ import os
 import glob
 import torch
 from torchvision import transforms
+from PIL import Image
 
 def get_data_list(dataset_path,teacher=True):
     if teacher:
@@ -37,6 +38,15 @@ class customDataset(torch.utils.data.Dataset):
         else:
             assert "x_path와 gt_path의 길이 불일치 !!"
 
+    def normalize_depth(self,depth_tensor):
+        # depth_tensor: (1, H, W)
+        # min-max normalization per image
+        min_val = depth_tensor.min()
+        max_val = depth_tensor.max()
+        normalized = (depth_tensor - min_val) / (max_val - min_val + 1e-8)
+        return normalized
+
+
     def __getitem__(self,idx):
         # 지금까지 해왓던 일반적인 방식과는 다르게, 여기서 데이터를 "직접 로드"하고 리턴하는 식으로 진행
         x = Image.open(self.x_path[idx]).convert('RGB')
@@ -44,6 +54,7 @@ class customDataset(torch.utils.data.Dataset):
 
         x = self.basic_transformation(x)
         gt = self.basic_transformation(gt)
+        gt = self.normalize_depth(gt)
 
         # if self.transform :
         # TBD.... for student..

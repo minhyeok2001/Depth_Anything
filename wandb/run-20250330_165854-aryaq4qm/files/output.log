@@ -1,0 +1,80 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+0it [00:08, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 51, in <module>
+    outputs = model(inputs)  # outputs: (B, H, W)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\models\model.py", line 173, in forward
+    features = self.encoder.get_intermediate_layers(x, 4, return_class_token=True)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 309, in get_intermediate_layers
+    outputs = self._get_intermediate_layers_not_chunked(x, n)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 278, in _get_intermediate_layers_not_chunked
+    x = blk(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 254, in forward
+    return super().forward(x_or_x_list)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 112, in forward
+    x = x + attn_residual_func(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 91, in attn_residual_func
+    return self.ls1(self.attn(self.norm1(x)))
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py", line 77, in forward
+    return super().forward(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py", line 63, in forward
+    attn = attn.softmax(dim=-1)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 770.00 MiB. GPU 0 has a total capacity of 8.00 GiB of which 0 bytes is free. Of the allocated memory 14.20 GiB is allocated by PyTorch, and 106.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 51, in <module>
+    outputs = model(inputs)  # outputs: (B, H, W)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\models\model.py", line 173, in forward
+    features = self.encoder.get_intermediate_layers(x, 4, return_class_token=True)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 309, in get_intermediate_layers
+    outputs = self._get_intermediate_layers_not_chunked(x, n)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 278, in _get_intermediate_layers_not_chunked
+    x = blk(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 254, in forward
+    return super().forward(x_or_x_list)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 112, in forward
+    x = x + attn_residual_func(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 91, in attn_residual_func
+    return self.ls1(self.attn(self.norm1(x)))
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py", line 77, in forward
+    return super().forward(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py", line 63, in forward
+    attn = attn.softmax(dim=-1)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 770.00 MiB. GPU 0 has a total capacity of 8.00 GiB of which 0 bytes is free. Of the allocated memory 14.20 GiB is allocated by PyTorch, and 106.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
