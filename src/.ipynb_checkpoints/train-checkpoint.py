@@ -10,6 +10,8 @@ import os
 from src.models.model import DepthModel
 from src.data.data_loader_teacher import dataloader,val_dataloader
 from torch.optim.lr_scheduler import ExponentialLR
+import torch.nn as nn
+import torch.nn.init as init
 
 device = device
 
@@ -31,6 +33,7 @@ wandb.login(key=api_key)
 run = wandb.init(project="DepthAnything_teacher",entity="mhroh01-ajou-university",config=hyper_params)
 
 model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+
 optimizer = optim.AdamW(model.parameters(), lr=lr)
 scheduler = ExponentialLR(optimizer, gamma=0.95)
 
@@ -40,6 +43,8 @@ wandb.watch(model, log="all")
 
 running_loss = 0.0
 trial = 0
+
+final_epoch = num_epochs
 
 for epoch in range(num_epochs):
     model.train()
@@ -90,18 +95,18 @@ for epoch in range(num_epochs):
         if patient > trial:
             trial +=1
         else:
-            checkpoint = {
-                'epoch': epoch + 1,
-                'model_state_dict': model.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'loss': epoch_loss,
-            }
-            torch.save(checkpoint, f'final_checkpoint.pth')
-            print("Final checkpoint saved.")
+            final_epoch = epoch
             break
     else:
         trial = 0
 
+checkpoint = {
+    'epoch': epoch,
+    'model_state_dict': model.state_dict(),
+    'optimizer_state_dict': optimizer.state_dict(),
+}
+torch.save(checkpoint, f'final_checkpoint.pth')
+print("Final checkpoint saved.")
 
 run.finish()
 

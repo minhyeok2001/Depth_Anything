@@ -28,8 +28,10 @@ def teacher_loss_function(pred,y,disparity=True):
 
     y = normalize_depth(y)
 
-    print("pred :", pred[0])
     print("gt :",y[0])
+    print("pred :",pred[0])
+    print("y aggregation :" ,torch.sum(y[0][0],dim=-1))
+    print("pred aggregation :" ,torch.sum(pred[0][0],dim=-1))
     #pred = torch.reshape(pred,(B,H*W))
     #y = torch.reshape(y,(B,H*W))
 
