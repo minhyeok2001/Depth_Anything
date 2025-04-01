@@ -32,7 +32,7 @@ api_key = os.getenv("WANDB_API_KEY")
 wandb.login(key=api_key)
 run = wandb.init(project="DepthAnything_teacher",entity="mhroh01-ajou-university",config=hyper_params)
 
-model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=True, localhub=False).to(device)
 
 optimizer = optim.AdamW(model.parameters(), lr=lr)
 scheduler = ExponentialLR(optimizer, gamma=0.95)
@@ -72,7 +72,8 @@ for epoch in range(num_epochs):
 
     epoch_loss = running_loss / len(dataloader)
     print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {epoch_loss:.4f}")
-
+    scheduler.step()
+    
     model.eval()
     running_val_loss = 0.0
     with torch.no_grad():
@@ -101,7 +102,7 @@ for epoch in range(num_epochs):
         trial = 0
 
 checkpoint = {
-    'epoch': epoch,
+    'epoch': final_epoch,
     'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
 }

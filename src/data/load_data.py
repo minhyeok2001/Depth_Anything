@@ -7,6 +7,7 @@ from torchvision import transforms
 from PIL import Image
 
 def get_data_list(dataset_path,teacher=True,start_idx=0,end_idx=1600):
+    """
     if teacher:
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "blended_images", "*_masked.jpg")))[start_idx:end_idx]
         gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*", "rendered_depth_maps", "*.pfm")))[start_idx:end_idx]
@@ -14,7 +15,11 @@ def get_data_list(dataset_path,teacher=True,start_idx=0,end_idx=1600):
     else :
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*.jpg")))
         gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth_maps", "*.pfm")))    ## teacher model로부터 만들어지는 pseudo map
+    """
 
+    if teacher:
+        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "train", "imgs", "*.jpg")))[start_idx:end_idx]
+        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "train", "gts", "*.png")))[start_idx:end_idx]
     #print(len(input_image_paths))
     return input_image_paths, gt_image_paths
 
@@ -46,8 +51,12 @@ class customDataset(torch.utils.data.Dataset):
 
         x = self.basic_transformation(x)
         gt = self.basic_transformation(gt)
-
+        """
+        valid = True
+        if torch.all(gt.flatten() == gt.flatten()[0]).item():
+            valid = False
+        """
         # if self.transform :
         # TBD.... for student..
 
-        return x, gt
+        return x, gt 
