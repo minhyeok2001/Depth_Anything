@@ -12,7 +12,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 학습 때와 동일한 파라미터로 모델 생성 및 checkpoint 불러오기
-model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=True, localhub=False).to(device)
 checkpoint_path = 'final_checkpoint.pth'
 checkpoint = torch.load(checkpoint_path, map_location=device)
 model.load_state_dict(checkpoint['model_state_dict'])

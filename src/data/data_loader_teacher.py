@@ -27,7 +27,5 @@ val_x_path_list , val_gt_path_list= get_data_list(dataset_path,start_idx=train_d
 val_dataset = customDataset(val_x_path_list,val_gt_path_list,transform=False)
 #print("Current working directory:", os.getcwd())
 
-
-
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)

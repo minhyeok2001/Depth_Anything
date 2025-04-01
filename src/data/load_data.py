@@ -30,8 +30,13 @@ class customDataset(torch.utils.data.Dataset):
             transforms.CenterCrop(448),
             transforms.ToTensor()
         ])
-        #self.jittering_transformation 
-        #self.gaussian_blur_transformation
+
+        self.transformation_for_pseudo_labeled = transforms.Compose([
+            transforms.CenterCrop(448),
+            transforms.jitter(),
+            transforms.gaussian_blur(),
+            transforms.ToTensor()
+        ])
 
     def __len__(self):
         if len(self.x_path) == len(self.gt_path):
@@ -44,10 +49,12 @@ class customDataset(torch.utils.data.Dataset):
         x = Image.open(self.x_path[idx]).convert('RGB')
         gt = Image.open(self.gt_path[idx]).convert('F')
 
-        x = self.basic_transformation(x)
-        gt = self.basic_transformation(gt)
+        if self.transform :
+            x = self.transformation_for_pseudo_labeled(x)
+            gt = self.basic_transformation(gt)
 
-        # if self.transform :
-        # TBD.... for student..
+        else :
+            x = self.basic_transformation(x)
+            gt = self.basic_transformation(gt)
 
         return x, gt
