@@ -1,9 +1,9 @@
 hyper_parameter:
-  epochs: 30
+  epochs: 20
   batch_size: 8
-  learning_rate: 0.0001
+  learning_rate: 0.00008
   patient: 3
-  train_data_size : 3200
+  train_data_size : 400
   val_data_size : 32
 
 
