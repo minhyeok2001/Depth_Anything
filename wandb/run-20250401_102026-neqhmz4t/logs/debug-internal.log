@@ -1,0 +1,15 @@
+{"time":"2025-04-01T10:20:27.0061858+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"C:\\Users\\mhroh\\Depth_Anything\\wandb\\run-20250401_102026-neqhmz4t\\logs\\debug-core.log"}
+{"time":"2025-04-01T10:20:27.1256923+09:00","level":"INFO","msg":"created new stream","id":"neqhmz4t"}
+{"time":"2025-04-01T10:20:27.126232+09:00","level":"INFO","msg":"stream: started","id":"neqhmz4t"}
+{"time":"2025-04-01T10:20:27.126232+09:00","level":"INFO","msg":"handler: started","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:20:27.1263165+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:20:27.1263165+09:00","level":"INFO","msg":"sender: started","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:20:27.4899597+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-01T10:21:52.8056971+09:00","level":"INFO","msg":"stream: closing","id":"neqhmz4t"}
+{"time":"2025-04-01T10:21:52.8056971+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-01T10:21:52.8062002+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-01T10:21:53.5184529+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-01T10:21:53.7576483+09:00","level":"INFO","msg":"handler: closed","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:21:53.7576483+09:00","level":"INFO","msg":"sender: closed","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:21:53.7576483+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"neqhmz4t"}
+{"time":"2025-04-01T10:21:53.7617683+09:00","level":"INFO","msg":"stream: closed","id":"neqhmz4t"}

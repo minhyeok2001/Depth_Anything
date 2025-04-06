@@ -1,0 +1,57 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+0it [00:06, ?it/s]
+pred : tensor([[0.0499, 0.0458, 0.0520,  ..., 0.0415, 0.0336, 0.0332],
+        [0.0569, 0.0561, 0.0624,  ..., 0.0496, 0.0443, 0.0385],
+        [0.0560, 0.0467, 0.0543,  ..., 0.0416, 0.0387, 0.0364],
+        ...,
+        [0.0362, 0.0255, 0.0375,  ..., 0.0646, 0.0645, 0.0515],
+        [0.0340, 0.0277, 0.0375,  ..., 0.0678, 0.0701, 0.0533],
+        [0.0193, 0.0221, 0.0280,  ..., 0.0364, 0.0340, 0.0333]],
+       device='cuda:0', grad_fn=<SelectBackward0>)
+gt : tensor([[1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.0000e+00, 1.0000e+00,
+         1.0000e+00],
+        [1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.0000e+00, 1.0000e+00,
+         1.0000e+00],
+        [1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.0000e+00, 1.0000e+00,
+         1.0000e+00],
+        ...,
+        [1.4363e-09, 1.4366e-09, 1.4368e-09,  ..., 1.3837e-09, 1.3836e-09,
+         1.3835e-09],
+        [1.4370e-09, 1.4374e-09, 1.4376e-09,  ..., 1.3841e-09, 1.3840e-09,
+         1.3840e-09],
+        [1.4378e-09, 1.4381e-09, 1.4383e-09,  ..., 1.3847e-09, 1.3847e-09,
+         1.3847e-09]], device='cuda:0')
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 57, in <module>
+    loss.backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 57, in <module>
+    loss.backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

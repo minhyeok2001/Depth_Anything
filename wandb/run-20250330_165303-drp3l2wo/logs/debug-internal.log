@@ -1,0 +1,15 @@
+{"time":"2025-03-30T16:53:03.325818+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/Users/minhyeokroh/PycharmProjects/JupyterProject/models/Depth_Anything/wandb/run-20250330_165303-drp3l2wo/logs/debug-core.log"}
+{"time":"2025-03-30T16:53:03.535867+09:00","level":"INFO","msg":"created new stream","id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:03.535912+09:00","level":"INFO","msg":"stream: started","id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:03.535924+09:00","level":"INFO","msg":"handler: started","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:03.536007+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:03.536024+09:00","level":"INFO","msg":"sender: started","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:03.955857+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-30T16:53:04.423401+09:00","level":"INFO","msg":"stream: closing","id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:04.423428+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-30T16:53:04.423694+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-30T16:53:05.429053+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-30T16:53:05.664401+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:05.664413+09:00","level":"INFO","msg":"sender: closed","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:05.664414+09:00","level":"INFO","msg":"handler: closed","stream_id":"drp3l2wo"}
+{"time":"2025-03-30T16:53:05.664549+09:00","level":"INFO","msg":"stream: closed","id":"drp3l2wo"}

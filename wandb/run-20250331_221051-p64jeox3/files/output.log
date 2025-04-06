@@ -1,0 +1,27 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 39, in <module>
+    {'params': model.decoder.parameters(), 'lr': lr},])
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'DepthModel' object has no attribute 'decoder'. Did you mean: 'encoder'?
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 39, in <module>
+    {'params': model.decoder.parameters(), 'lr': lr},])
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'DepthModel' object has no attribute 'decoder'. Did you mean: 'encoder'?

@@ -1,0 +1,14 @@
+{
+  "os": "macOS-15.3.2-arm64-arm-64bit",
+  "python": "CPython 3.12.4",
+  "startedAt": "2025-03-30T07:53:03.324035Z",
+  "program": "-m src.train",
+  "git": {
+    "remote": "https://github.com/minhyeok2001/Depth_Anything",
+    "commit": "a1ac3848fc29d57eddb4cc0ab235368a49bf273c"
+  },
+  "email": "mhroh01@naver.com",
+  "root": "/Users/minhyeokroh/PycharmProjects/JupyterProject/models/Depth_Anything",
+  "host": "minhyeokroh.local",
+  "executable": "/opt/homebrew/anaconda3/bin/python"
+}

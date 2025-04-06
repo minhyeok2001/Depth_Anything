@@ -1,0 +1,165 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+1it [00:15, 15.63s/it]
+gt : tensor([[1.5429e-11, 1.5429e-11, 1.5429e-11,  ..., 2.3284e-11, 2.3284e-11,
+         2.3284e-11],
+        [1.5429e-11, 1.5429e-11, 1.5429e-11,  ..., 2.3284e-11, 2.3284e-11,
+         2.3284e-11],
+        [1.5429e-11, 1.5429e-11, 1.5429e-11,  ..., 2.3284e-11, 2.3284e-11,
+         2.3284e-11],
+        ...,
+        [1.1703e-10, 1.1703e-10, 1.1703e-10,  ..., 4.6991e-11, 4.8504e-11,
+         5.1693e-11],
+        [1.1703e-10, 1.1703e-10, 1.1703e-10,  ..., 4.6991e-11, 4.8504e-11,
+         5.0874e-11],
+        [1.1703e-10, 1.1703e-10, 1.1703e-10,  ..., 4.6991e-11, 4.7741e-11,
+         5.0874e-11]], device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation : tensor(4., device='cuda:0')
+pred aggregation : tensor(0.4576, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [0], Loss: 1.2397
+gt : tensor([[6.3877e-11, 6.3877e-11, 6.3877e-11,  ..., 8.8989e-11, 8.8989e-11,
+         8.8989e-11],
+        [6.3877e-11, 6.3877e-11, 6.3877e-11,  ..., 8.8989e-11, 8.8989e-11,
+         8.8989e-11],
+        [6.3877e-11, 6.3877e-11, 6.3877e-11,  ..., 8.8989e-11, 8.8989e-11,
+         8.8989e-11],
+        ...,
+        [9.8039e-12, 9.8039e-12, 9.8039e-12,  ..., 8.6312e-12, 8.6312e-12,
+         8.6312e-12],
+        [9.8039e-12, 9.8039e-12, 9.8039e-12,  ..., 8.6312e-12, 8.6312e-12,
+         8.6312e-12],
+        [9.5648e-12, 9.8039e-12, 9.8039e-12,  ..., 8.4034e-12, 8.4034e-12,
+         8.4034e-12]], device='cuda:0')
+pred : tensor([[0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        ...,
+        [0.0000, 0.0000, 0.0000,  ..., 0.0544, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0398, 0.0101, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0722, 0.0307, 0.0000]],
+       device='cuda:0', grad_fn=<SelectBackward0>)
+y aggregation : tensor(3.0583e-08, device='cuda:0')
+pred aggregation : tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+gt : tensor([[4.1533e-10, 4.1533e-10, 4.1533e-10,  ..., 2.0469e-10, 2.0469e-10,
+         2.0469e-10],
+        [4.1533e-10, 4.1533e-10, 4.1533e-10,  ..., 2.0469e-10, 2.0469e-10,
+         2.0469e-10],
+        [4.1533e-10, 4.1533e-10, 4.1533e-10,  ..., 2.0469e-10, 2.0469e-10,
+         2.0469e-10],
+        ...,
+        [3.0561e-10, 3.0561e-10, 3.0561e-10,  ..., 1.5309e-10, 1.5309e-10,
+         1.5309e-10],
+        [3.0561e-10, 3.0561e-10, 3.0561e-10,  ..., 1.5309e-10, 1.5309e-10,
+         1.5309e-10],
+        [3.0561e-10, 3.0561e-10, 3.0561e-10,  ..., 1.5309e-10, 1.5309e-10,
+         1.5309e-10]], device='cuda:0')
+pred : tensor([[0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        ...,
+        [0.0000, 0.0000, 0.0000,  ..., 0.0032, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0582, 0.0279, 0.0000]],
+       device='cuda:0', grad_fn=<SelectBackward0>)
+y aggregation : tensor(39., device='cuda:0')
+pred aggregation : tensor(2.3614, device='cuda:0', grad_fn=<SumBackward1>)
+gt : tensor([[1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.9141e-10, 1.9141e-10,
+         1.9141e-10],
+        [1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.9141e-10, 1.9141e-10,
+         1.9141e-10],
+        [1.0000e+00, 1.0000e+00, 1.0000e+00,  ..., 1.9141e-10, 1.9141e-10,
+         1.0000e+00],
+        ...,
+        [4.5055e-11, 4.5055e-11, 4.5055e-11,  ..., 5.0591e-11, 5.0591e-11,
+         5.0591e-11],
+        [4.4318e-11, 4.4318e-11, 4.4318e-11,  ..., 4.9757e-11, 5.0591e-11,
+         5.0591e-11],
+        [4.3594e-11, 4.3594e-11, 4.3594e-11,  ..., 4.9757e-11, 4.9757e-11,
+         4.9757e-11]], device='cuda:0')
+pred : tensor([[0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0511,  ..., 0.0034, 0.0000, 0.0000],
+        [0.0000, 0.0086, 0.1027,  ..., 0.0635, 0.0179, 0.0000],
+        ...,
+        [0.0000, 0.0000, 0.0000,  ..., 0.0701, 0.0162, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0525, 0.0141, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0570, 0.0331, 0.0000]],
+       device='cuda:0', grad_fn=<SelectBackward0>)
+y aggregation : tensor(151., device='cuda:0')
+pred aggregation : tensor(12.2889, device='cuda:0', grad_fn=<SumBackward1>)
+gt : tensor([[1.5231e-10, 1.5231e-10, 1.5231e-10,  ..., 1.6833e-10, 1.6833e-10,
+         1.6833e-10],
+        [1.5231e-10, 1.5231e-10, 1.5231e-10,  ..., 1.6408e-10, 1.6408e-10,
+         1.6408e-10],
+        [1.5231e-10, 1.5231e-10, 1.5231e-10,  ..., 1.6408e-10, 1.6408e-10,
+         1.6408e-10],
+        ...,
+        [1.4054e-11, 1.4054e-11, 1.4054e-11,  ..., 1.3191e-11, 1.2910e-11,
+         1.2910e-11],
+        [1.3763e-11, 1.3763e-11, 1.3763e-11,  ..., 1.2910e-11, 1.2910e-11,
+         1.2910e-11],
+        [1.3763e-11, 1.3763e-11, 1.3763e-11,  ..., 1.2910e-11, 1.2910e-11,
+         1.2910e-11]], device='cuda:0')
+pred : tensor([[0.0000, 0.0000, 0.0000,  ..., 0.0000, 0.0000, 0.0000],
+        [0.0000, 0.0284, 0.0634,  ..., 0.0022, 0.0000, 0.0000],
+        [0.0000, 0.0714, 0.1074,  ..., 0.0260, 0.0000, 0.0000],
+        ...,
+        [0.0000, 0.0000, 0.0000,  ..., 0.0411, 0.0199, 0.0000],
+        [0.0000, 0.0000, 0.0000,  ..., 0.0030, 0.0000, 0.0000],
+        [0.0000, 0.0000, 0.0027,  ..., 0.0535, 0.0376, 0.0000]],
+       device='cuda:0', grad_fn=<SelectBackward0>)
+y aggregation : tensor(6.3204e-08, device='cuda:0')
+pred aggregation : tensor(9.3823, device='cuda:0', grad_fn=<SumBackward1>)
+gt :
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 64, in <module>
+    loss = teacher_loss_function(outputs, targets, disparity=False)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_teacher.py", line 31, in teacher_loss_function
+    print("gt :",y[0])
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 568, in __repr__
+    return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 704, in _str
+    return _str_intern(self, tensor_contents=tensor_contents)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 621, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 353, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 145, in __init__
+    nonzero_finite_vals = torch.masked_select(
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 64, in <module>
+    loss = teacher_loss_function(outputs, targets, disparity=False)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_teacher.py", line 31, in teacher_loss_function
+    print("gt :",y[0])
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 568, in __repr__
+    return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 704, in _str
+    return _str_intern(self, tensor_contents=tensor_contents)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 621, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 353, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor_str.py", line 145, in __init__
+    nonzero_finite_vals = torch.masked_select(
+KeyboardInterrupt

@@ -1,0 +1,149 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+1it [00:00,  1.34it/s]
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[0.5615, 0.5616, 0.5616,  ..., 0.5456, 0.5450, 0.5452],
+        [0.5614, 0.5615, 0.5615,  ..., 0.5457, 0.5452, 0.5452],
+        [0.5614, 0.5614, 0.5613,  ..., 0.5465, 0.5454, 0.5454],
+        ...,
+        [0.5729, 0.5728, 0.5721,  ..., 0.5591, 0.5594, 0.5598],
+        [0.5730, 0.5728, 0.5724,  ..., 0.5589, 0.5592, 0.5595],
+        [0.5730, 0.5729, 0.5723,  ..., 0.5587, 0.5591, 0.5594]],
+       device='cuda:0')
+Epoch [1/3], Batch [0], Loss: 1.0000
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[0.7384, 0.7384, 0.7385,  ..., 0.9580, 0.9599, 0.9615],
+        [0.7385, 0.7385, 0.7386,  ..., 0.9584, 0.9593, 0.9610],
+        [0.7390, 0.7391, 0.7391,  ..., 0.9587, 0.9595, 0.9605],
+        ...,
+        [0.7936, 0.7935, 0.7935,  ..., 0.9837, 0.9842, 0.9847],
+        [0.7943, 0.7938, 0.7935,  ..., 0.9839, 0.9844, 0.9849],
+        [0.7948, 0.7946, 0.7945,  ..., 0.9841, 0.9845, 0.9849]],
+       device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[1.9849, 1.9783, 1.9649,  ..., 1.5308, 1.5307, 1.5304],
+        [1.9856, 1.9765, 1.9652,  ..., 1.5312, 1.5311, 1.5310],
+        [1.9859, 1.9670, 1.9656,  ..., 1.5316, 1.5315, 1.5313],
+        ...,
+        [2.0676, 2.0652, 2.0627,  ..., 1.7322, 1.7324, 1.7326],
+        [2.0674, 2.0649, 2.0625,  ..., 1.7328, 1.7324, 1.7321],
+        [2.0671, 2.0647, 2.0623,  ..., 1.7328, 1.7320, 1.7317]],
+       device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[0.8964, 0.8957, 0.8954,  ..., 0.8172, 0.8184, 0.8196],
+        [0.8962, 0.8959, 0.8954,  ..., 0.8168, 0.8183, 0.8194],
+        [0.8967, 0.8960, 0.8954,  ..., 0.8168, 0.8182, 0.8192],
+        ...,
+        [0.9238, 0.9237, 0.9238,  ..., 0.8490, 0.8496, 0.8501],
+        [0.9245, 0.9245, 0.9245,  ..., 0.8491, 0.8497, 0.8502],
+        [0.9251, 0.9251, 0.9247,  ..., 0.8491, 0.8498, 0.8504]],
+       device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[1.3010, 1.3017, 1.3027,  ..., 1.6577, 1.6586, 1.6598],
+        [1.3009, 1.3016, 1.3027,  ..., 1.6588, 1.6599, 1.6607],
+        [1.3010, 1.3017, 1.3027,  ..., 1.6605, 1.6610, 1.6615],
+        ...,
+        [1.3919, 1.3927, 1.3935,  ..., 1.7519, 1.7526, 1.7539],
+        [1.3922, 1.3929, 1.3937,  ..., 1.7518, 1.7525, 1.7535],
+        [1.3924, 1.3932, 1.3939,  ..., 1.7518, 1.7530, 1.7540]],
+       device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[0.7683, 0.7685, 0.7688,  ..., 0.8680, 0.8678, 0.8676],
+        [0.7684, 0.7686, 0.7688,  ..., 0.8683, 0.8681, 0.8679],
+        [0.7685, 0.7685, 0.7686,  ..., 0.8684, 0.8684, 0.8682],
+        ...,
+        [0.8222, 0.8209, 0.8196,  ..., 0.8963, 0.8965, 0.9331],
+        [0.8224, 0.8212, 0.8198,  ..., 0.8964, 0.8967, 0.9333],
+        [0.8227, 0.8215, 0.8201,  ..., 0.8966, 0.8968, 0.9334]],
+       device='cuda:0')
+pred : tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+gt : tensor([[1.9921, 1.9928, 1.9935,  ..., 1.1021, 1.1019, 1.1017],
+        [1.9919, 1.9927, 1.9936,  ..., 1.1063, 1.1060, 1.1053],
+        [1.9916, 1.9924, 1.9932,  ..., 1.1066, 1.1063, 1.1060],
+        ...,
+        [2.4510, 2.4521, 2.4534,  ..., 1.3898, 1.3909, 1.3924],
+        [2.4522, 2.4540, 2.4547,  ..., 1.3905, 1.3912, 1.3928],
+        [2.4542, 2.4559, 2.4560,  ..., 1.3917, 1.3920, 1.3931]],
+       device='cuda:0')
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 65, in <module>
+    loss.backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 65, in <module>
+    loss.backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

@@ -1,0 +1,42 @@
+{
+  "os": "macOS-15.3.2-arm64-arm-64bit",
+  "python": "CPython 3.12.4",
+  "startedAt": "2025-03-30T07:53:47.866031Z",
+  "program": "-m src.train",
+  "git": {
+    "remote": "https://github.com/minhyeok2001/Depth_Anything",
+    "commit": "a1ac3848fc29d57eddb4cc0ab235368a49bf273c"
+  },
+  "email": "mhroh01@naver.com",
+  "root": "/Users/minhyeokroh/PycharmProjects/JupyterProject/models/Depth_Anything",
+  "host": "minhyeokroh.local",
+  "executable": "/opt/homebrew/anaconda3/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "252663906304"
+    },
+    "/System/Volumes/Data": {
+      "total": "494384795648",
+      "used": "252663906304"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 10
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "17179869184"
+  }
+}

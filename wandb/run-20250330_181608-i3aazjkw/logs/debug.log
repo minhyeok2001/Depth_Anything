@@ -1,0 +1,23 @@
+2025-03-30 18:16:08,564 INFO    MainThread:5676 [wandb_setup.py:_flush():67] Current SDK version is 0.19.8
+2025-03-30 18:16:08,564 INFO    MainThread:5676 [wandb_setup.py:_flush():67] Configure stats pid to 5676
+2025-03-30 18:16:08,564 INFO    MainThread:5676 [wandb_setup.py:_flush():67] Loading settings from C:\Users\mhroh\.config\wandb\settings
+2025-03-30 18:16:08,564 INFO    MainThread:5676 [wandb_setup.py:_flush():67] Loading settings from C:\Users\mhroh\Depth_Anything\wandb\settings
+2025-03-30 18:16:08,564 INFO    MainThread:5676 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:setup_run_log_directory():647] Logging user logs to C:\Users\mhroh\Depth_Anything\wandb\run-20250330_181608-i3aazjkw\logs\debug.log
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to C:\Users\mhroh\Depth_Anything\wandb\run-20250330_181608-i3aazjkw\logs\debug-internal.log
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:init():761] calling init triggers
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'epochs': 50, 'batch_size': 8, 'learning_rate': 0.001, 'patient': 3, '_wandb': {}}
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:init():784] starting backend
+2025-03-30 18:16:08,565 INFO    MainThread:5676 [wandb_init.py:init():788] sending inform_init request
+2025-03-30 18:16:08,583 INFO    MainThread:5676 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=spawn, using: spawn
+2025-03-30 18:16:08,583 INFO    MainThread:5676 [wandb_init.py:init():798] backend started and connected
+2025-03-30 18:16:08,584 INFO    MainThread:5676 [wandb_init.py:init():891] updated telemetry
+2025-03-30 18:16:08,639 INFO    MainThread:5676 [wandb_init.py:init():915] communicating run to backend with 90.0 second timeout
+2025-03-30 18:16:09,078 INFO    MainThread:5676 [wandb_init.py:init():990] starting run threads in backend
+2025-03-30 18:16:09,281 INFO    MainThread:5676 [wandb_run.py:_console_start():2375] atexit reg
+2025-03-30 18:16:09,281 INFO    MainThread:5676 [wandb_run.py:_redirect():2227] redirect: wrap_raw
+2025-03-30 18:16:09,281 INFO    MainThread:5676 [wandb_run.py:_redirect():2292] Wrapping output streams.
+2025-03-30 18:16:09,281 INFO    MainThread:5676 [wandb_run.py:_redirect():2315] Redirects installed.
+2025-03-30 18:16:09,286 INFO    MainThread:5676 [wandb_init.py:init():1032] run started, returning control to user process
+2025-03-30 18:18:32,415 INFO    MsgRouterThr:5676 [mailbox.py:close():129] Closing mailbox, abandoning 1 handles.
