@@ -8,7 +8,7 @@
    -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
      
 ---
-Notion links ( The considerations during development ) 
+The considerations during development
 
 - https://even-bay-44c.notion.site/Depth-Anything-construction-1ceee63422d0801fa141d3341ecd1c6d
 
