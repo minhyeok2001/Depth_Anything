@@ -6,11 +6,19 @@
    - _Is margin for feature alignment loss necessary?_
      
    -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
-     
+
 ---
+
+Original paper
+
+- [Depth Anything](https://github.com/LiheYoung/Depth-Anything)
+
+---
+
 The considerations during project
 
-- https://even-bay-44c.notion.site/Depth-Anything-construction-1ceee63422d0801fa141d3341ecd1c6d
+- [Notion link](https://even-bay-44c.notion.site/Depth-Anything-construction-1ceee63422d0801fa141d3341ecd1c6d)
+
 
 ## 1. Complete Depth Anything Code 
 
