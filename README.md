@@ -9,7 +9,7 @@
 
 ---
 
-Original paper
+Original paper & code
 
 - [Depth Anything](https://github.com/LiheYoung/Depth-Anything)
 
