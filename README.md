@@ -1,6 +1,6 @@
 # Depth_Anything
 
-1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process**
+1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process with metrics**
    
 2. Idea application on Depth Anything
    - _Is margin for feature alignment loss necessary?_
