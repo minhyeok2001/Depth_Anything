@@ -1,7 +1,18 @@
 # Depth_Anything
 
-Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process**
+1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process**
+   
+2. Idea application on Depth Anything
+   - _Is margin for feature alignment loss necessary?_
+     
+   -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
+     
+---
+Notion links ( The considerations during development ) 
 
+- https://even-bay-44c.notion.site/Depth-Anything-construction-1ceee63422d0801fa141d3341ecd1c6d
+
+## 1. Complete Depth Anything Code 
 
 ```bash
 .
@@ -30,12 +41,7 @@ Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and
 ├── wandb  # logs & tracking with API
 ├── README.md
 └── requirements.txt
-
-
-
 ```
-
----
 
 To install the required packages, run:
 
@@ -43,7 +49,6 @@ To install the required packages, run:
 pip install -r requirements.txt
 ```
 
----
 
 To train the model, run:
 
@@ -51,10 +56,12 @@ To train the model, run:
 python -m src.train (--teacher or --student)
 ```
 
----
 
 To predict the model, run:
 
 ```bash
 python -m src.pred (--teacher or --student)
 ```
+
+---
+
