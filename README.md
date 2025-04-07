@@ -8,7 +8,7 @@
    -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
      
 ---
-The considerations during development
+The considerations during project
 
 - https://even-bay-44c.notion.site/Depth-Anything-construction-1ceee63422d0801fa141d3341ecd1c6d
 
@@ -30,7 +30,7 @@ The considerations during development
 │   │   └── loss_teacher.py  # L_l + L_u + L_feat loss
 │   ├── models
 │   │   ├── __init__.py
-│   │   └── model.py  # Pass additional result through encoder for L_feat loss on original code 
+│   │   └── model.py  # Pass additional output from final encoder layer for L_feat loss on original code 
 │   ├── utils
 │   │   ├── __init__.py
 │   │   ├── check_device.py
