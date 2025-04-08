@@ -7,6 +7,7 @@ from torchvision import transforms
 from PIL import Image
 import torch
 import random
+import numpy as np
 
 def get_data_list(dataset_path,data_name,val=False,start_idx=0,end_idx=16000):
     """
@@ -23,8 +24,8 @@ def get_data_list(dataset_path,data_name,val=False,start_idx=0,end_idx=16000):
             gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "train", "gts", "*.png")))[start_idx:end_idx]
 
     elif data_name == "google_landmark":
-        input_image_paths = sorted(glob.glob(os.path.join(dataset_path, "*.jpg")))[start_idx:end_idx]
-        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth_maps", "*.jpg")))[start_idx:end_idx]  ## teacher model로부터 만들어지는 pseudo
+        input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"image" ,"*.jpg")))[start_idx:end_idx]
+        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth", "*.npy")))[start_idx:end_idx]  ## teacher model로부터 만들어지는 pseudo -> npy tensor
 
     elif data_name == "bleneded_mvs":
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"blended_images" ,"*_masked.jpg")))[start_idx:end_idx]
@@ -38,9 +39,9 @@ def get_data_list(dataset_path,data_name,val=False,start_idx=0,end_idx=16000):
     return input_image_paths, gt_image_paths
 
 
-# 커스텀 데이터셋 생성
+# 커스텀 데이터셋 생성 -> handing npy added !!
 class customDataset(torch.utils.data.Dataset):
-    def __init__(self,x_path,gt_path,transform=False):
+    def __init__(self, x_path, gt_path, transform=False):
         super().__init__()
         self.x_path = x_path
         self.gt_path = gt_path
@@ -49,7 +50,6 @@ class customDataset(torch.utils.data.Dataset):
             transforms.CenterCrop(448),
             transforms.ToTensor()
         ])
-
         self.transformation_for_pseudo_label = transforms.Compose([
             transforms.CenterCrop(448),
             transforms.ColorJitter(brightness=.5, hue=.3),
@@ -61,20 +61,25 @@ class customDataset(torch.utils.data.Dataset):
         if len(self.x_path) == len(self.gt_path):
             return len(self.x_path)
         else:
-            assert "x_path와 gt_path의 길이 불일치 !!"
+            raise ValueError("x_path와 gt_path의 길이가 다릅니다.")
 
-    def __getitem__(self,idx):
-        # 지금까지 해왓던 일반적인 방식과는 다르게, 여기서 데이터를 "직접 로드"하고 리턴하는 식으로 진행
+    def __getitem__(self, idx):
         x = Image.open(self.x_path[idx]).convert('RGB')
-        gt = Image.open(self.gt_path[idx]).convert('F')
-
-        if self.transform :
-            x = self.transformation_for_pseudo_label(x)
+    
+        gt_path = self.gt_path[idx]
+        if gt_path.lower().endswith('.npy'):
+            gt = np.load(gt_path)
+            if gt.ndim == 2:
+                gt = np.expand_dims(gt, axis=0)
+            gt = torch.from_numpy(gt).float()
+        else:
+            gt = Image.open(gt_path).convert('F')
             gt = self.basic_transformation(gt)
 
+        if self.transform:
+            x = self.transformation_for_pseudo_label(x)
         else :
             x = self.basic_transformation(x)
-            gt = self.basic_transformation(gt)
 
         return x, gt
 
@@ -150,6 +155,7 @@ def cutMix_collate_fn(data):
 
     ## 마스크는 shape 기준으로 1/2, 1/2 부분. 즉 1/4만 씌워주도록 설해보자 -> 논문에서는 Mask가 실제로 어떻게 생겼는지에 대한 언급은 없음
     mask = torch.zeros(data[0][0][0].shape)
+    
     # print(mask)
     mask[0:x_shape//2,0:y_shape//2]=1
     #print(mask)

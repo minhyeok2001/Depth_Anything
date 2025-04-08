@@ -2,11 +2,11 @@ import torch
 import torch.nn as nn
 
 class Loss_student(nn.Module):
-    def __init__(self, eps=1e-8,threshold=0.85):
+    def __init__(self, device, eps=1e-8,threshold=0.85):
         super().__init__()
         self.eps = eps
         self.threshold = threshold
-
+        self.device = device
     def _normalize_depth(self, depth_tensor):
         # min-max normalization
         # per image
@@ -128,6 +128,7 @@ class Loss_student(nn.Module):
 
         mask = torch.zeros(len_data//3,H,W)
         mask[:,:H//2,:W//2] = 1
+        mask = mask.to(self.device) ## cpu -> gpu
 
         #print("mask: ",mask.shape)
 

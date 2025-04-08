@@ -7,7 +7,9 @@ from dotenv import load_dotenv,find_dotenv
 from torch.utils.data import DataLoader
 from src.data.load_data import get_data_list, customDataset, combinedDataset, mixedBatchSampler,cutMix_collate_fn
 import yaml
+import numpy as np
 
+#os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 config_path = "configs/config.yaml"
 with open(config_path, "r") as file:
@@ -21,19 +23,18 @@ val_data_size = hyper_params["val_data_size"]
 # env로부터 경로 가져오고, 인풋이미지와 gt 이미지 경로만 로드
 
 assert labeled_train_data_size % 3 == 0, " 데이터 무조건 3으로 나눠져야함 !! "
-assert val_data_size % 3 == 0 , " 데이터 무조건 3으로 나눠져야함 !! "
 
 load_dotenv(find_dotenv())
-#labeled_dataset_path = os.getenv("HRWSI_DATASET_PATH")
-#pseudo_labeled_dataset_path = os.getenv("GOOGLE_DATASET_PATH")
+labeled_dataset_path = os.getenv("HRWSI_DATASET_PATH")
+pseudo_labeled_dataset_path = os.getenv("GOOGLELANDMARK_DATASET_PATH")
 
-labeled_dataset_path = "/Users/minhyeokroh/Documents/2025-1/DA_dataset/HR-WSI"
-pseudo_labeled_dataset_path = "/Users/minhyeokroh/Documents/2025-1/DA_dataset/blendedMVS"
+#labeled_dataset_path = "/Users/minhyeokroh/Documents/2025-1/DA_dataset/HR-WSI"
+#pseudo_labeled_dataset_path = "/Users/minhyeokroh/Documents/2025-1/DA_dataset/blendedMVS"
 
 x_path_list , gt_path_list= get_data_list(labeled_dataset_path,data_name="hrwsi",end_idx=labeled_train_data_size)
 labeled_dataset = customDataset(x_path_list,gt_path_list,transform=False)
 
-pseudo_x_path_list , pseudo_gt_path_list = get_data_list(pseudo_labeled_dataset_path,data_name="bleneded_mvs",end_idx=pseudo_train_data_size)
+pseudo_x_path_list , pseudo_gt_path_list = get_data_list(pseudo_labeled_dataset_path,data_name="google_landmark",end_idx=pseudo_train_data_size)
 pseudo_dataset = customDataset(pseudo_x_path_list,pseudo_gt_path_list,transform=True)
 
 combined_dataset = combinedDataset(labeled_dataset,pseudo_dataset)
@@ -49,14 +50,13 @@ val_dataloader_student = DataLoader(val_dataset, batch_size=batch_size, shuffle=
 for x,y in val_dataloader_student:
     print(x)
     break
-    
-    
+
 import matplotlib.pyplot as plt
 from torchvision.transforms.functional import to_pil_image
 from torchvision.transforms import ToPILImage
 
 to_pil = ToPILImage()
-for x, gt ,cutmix in dataloader_student:
+for x, gt in dataloader_student:
     batch_size = x.shape[0]
     print("B S : ",x.shape[0])
     fig, axes = plt.subplots(nrows=2, ncols=batch_size, figsize=(3*batch_size, 6))
@@ -77,6 +77,5 @@ for x, gt ,cutmix in dataloader_student:
     plt.tight_layout()
     plt.show()
     break
-
-잘 나오는 것 확인
 """
+    

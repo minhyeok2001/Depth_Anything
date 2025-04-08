@@ -1,0 +1,58 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:171: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:185: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2
+  with autocast(dtype=torch.bfloat16):
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([8.0489e-11, 8.0489e-11, 8.0489e-11,  ..., 6.2550e-11, 6.2550e-11,
+        6.2550e-11], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0005, 0.0005,  ..., 0.0027, 0.0021, 0.0000], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(1211., device='cuda:0')
+pred aggregation ( 1st element ): tensor(3161.0674, device='cuda:0', grad_fn=<SumBackward1>)
+0it [00:04, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 189, in train_student
+    loss = loss_module(outputs, targets,len_data=(inputs.shape[0]),disparity=False,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_student.py", line 131, in forward
+    mask = mask.to(pred_mask2.device) ## cpu -> gpu
+NameError: name 'pred_mask2' is not defined. Did you mean: 'pred_mask1'?
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 189, in train_student
+    loss = loss_module(outputs, targets,len_data=(inputs.shape[0]),disparity=False,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_student.py", line 131, in forward
+    mask = mask.to(pred_mask2.device) ## cpu -> gpu
+NameError: name 'pred_mask2' is not defined. Did you mean: 'pred_mask1'?

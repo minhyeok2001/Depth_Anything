@@ -1,0 +1,15 @@
+{"time":"2025-04-08T16:57:41.7196509+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"C:\\Users\\mhroh\\Depth_Anything\\wandb\\run-20250408_165741-lisqecp8\\logs\\debug-core.log"}
+{"time":"2025-04-08T16:57:41.8384181+09:00","level":"INFO","msg":"created new stream","id":"lisqecp8"}
+{"time":"2025-04-08T16:57:41.8384181+09:00","level":"INFO","msg":"stream: started","id":"lisqecp8"}
+{"time":"2025-04-08T16:57:41.8384181+09:00","level":"INFO","msg":"handler: started","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:41.8384181+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:41.8384181+09:00","level":"INFO","msg":"sender: started","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:42.1682064+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T16:57:51.6574984+09:00","level":"INFO","msg":"stream: closing","id":"lisqecp8"}
+{"time":"2025-04-08T16:57:51.6574984+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T16:57:51.6581527+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T16:57:52.3996497+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T16:57:52.6558057+09:00","level":"INFO","msg":"handler: closed","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:52.6558057+09:00","level":"INFO","msg":"sender: closed","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:52.6558057+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lisqecp8"}
+{"time":"2025-04-08T16:57:52.6558057+09:00","level":"INFO","msg":"stream: closed","id":"lisqecp8"}

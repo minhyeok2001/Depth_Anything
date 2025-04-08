@@ -163,7 +163,7 @@ def train_student():
 
     optimizer = optim.AdamW(model.parameters(), lr=lr)
     scheduler = ExponentialLR(optimizer, gamma=0.95)
-    loss_module = Loss_student(threshold=threshold)
+    loss_module = Loss_student(device=device,threshold=threshold)
 
     wandb.watch(model, log="all")
 
@@ -186,7 +186,7 @@ def train_student():
                 outputs, burning_feature = model(inputs)
                 frozen_feature = frozen_model.get_intermediate_layers(inputs[B//3:(B//3)*2],n=1,return_class_token=False)
                 #print("frozen feature : ", frozen_feature.shape) 아!! 이게 CLS token 이었구나 !!! 이미지 하나 넣으면 cls 토큰 하나를 뽑아주는거야 !!
-                loss = loss_module(outputs, targets,len_data=(inputs.shape[0]),disparity=False,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+                loss = loss_module(outputs, targets,len_data=(inputs.shape[0]),disparity=True,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
