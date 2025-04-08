@@ -211,7 +211,7 @@ def train_student():
                 with autocast(dtype=torch.bfloat16):
                     outputs, burning_feature = model(inputs)
                     frozen_feature = frozen_model.get_intermediate_layers(inputs[B // 3:(B // 3) * 2], n=1,return_class_token=False)
-                    loss = loss_module(outputs, targets, len_data=(inputs.shape[0]), disparity=False,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+                    loss = loss_module(outputs, targets, len_data=(inputs.shape[0]), disparity=True,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
                 running_val_loss += loss.item()
                 abs_rel += compute_abs_rel(outputs, targets)
                 delta1 += compute_delta1(outputs, targets)

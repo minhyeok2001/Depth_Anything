@@ -1,0 +1,43 @@
+{
+  "os":  "Windows-10-10.0.22631-SP0",
+  "python":  "CPython 3.10.16",
+  "startedAt":  "2025-04-08T08:04:47.057713Z",
+  "args":  [
+    "--student"
+  ],
+  "program":  "-m src.train",
+  "git":  {
+    "remote":  "https://github.com/minhyeok2001/Depth_Anything.git",
+    "commit":  "3f86b96fe3bd34ec5657b6a40d4ff59f8dc3845b"
+  },
+  "email":  "mhroh01@naver.com",
+  "root":  "C:\\Users\\mhroh\\Depth_Anything",
+  "host":  "DESKTOP-HDJFJR0",
+  "executable":  "C:\\Users\\mhroh\\anaconda3\\envs\\dl_env\\python.exe",
+  "cpu_count":  6,
+  "cpu_count_logical":  12,
+  "gpu":  "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "499106967552",
+      "used":  "458587918336"
+    }
+  },
+  "memory":  {
+    "total":  "17086148608"
+  },
+  "cpu":  {
+    "count":  6,
+    "countLogical":  12
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal":  "8589934592",
+      "cudaCores":  4864,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.6"
+}

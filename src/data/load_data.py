@@ -24,8 +24,12 @@ def get_data_list(dataset_path,data_name,val=False,start_idx=0,end_idx=16000):
             gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "train", "gts", "*.png")))[start_idx:end_idx]
 
     elif data_name == "google_landmark":
-        input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"image" ,"*.jpg")))[start_idx:end_idx]
-        gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth", "*.npy")))[start_idx:end_idx]  ## teacher model로부터 만들어지는 pseudo -> npy tensor
+        if val :
+            input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"val", "image" ,"*.jpg")))[start_idx:end_idx]
+            gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "val", "pseudo_depth", "*.npy")))[start_idx:end_idx]
+        else :
+            input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"image" ,"*.jpg")))[start_idx:end_idx]
+            gt_image_paths = sorted(glob.glob(os.path.join(dataset_path, "pseudo_depth", "*.npy")))[start_idx:end_idx]  ## teacher model로부터 만들어지는 pseudo -> npy tensor
 
     elif data_name == "bleneded_mvs":
         input_image_paths = sorted(glob.glob(os.path.join(dataset_path,"blended_images" ,"*_masked.jpg")))[start_idx:end_idx]
