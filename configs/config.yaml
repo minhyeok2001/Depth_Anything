@@ -10,11 +10,12 @@ teacher_hyper_parameter:
 student_hyper_parameter:
   # 자동적으로 pseudo labeled dataset의 크기는, labeled dataset 인 "train_data_size" 두배로 설정.
   # val dataset 또한 마찬가지로 적용
+  # 9000 에 12시간 걸렸음. 1 epoch을 6시간으로 하자. 4500
   epochs: 20
   batch_size: 6
   learning_rate: 0.00001
   patient: 5
-  train_data_size : 3
-  val_data_size : 3
+  train_data_size : 4500
+  val_data_size : 150
   threshold : 0.85
 
