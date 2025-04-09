@@ -83,20 +83,21 @@ def train_teacher():
         with torch.no_grad():
             for inputs, targets in val_dataloader_teacher:
                 inputs, targets = inputs.to(device), targets.to(device)
-                with autocast(dtype=torch.bfloat16):
-                    outputs = model(inputs)
-                    loss = loss_module(outputs, targets, disparity=False)
-                    outputs = scale_shift_correction(outputs, targets)
+           
+                outputs = model(inputs)
+                loss = loss_module(outputs, targets, disparity=False)
+                outputs = scale_shift_correction(outputs, targets)
                 running_val_loss += loss.item()
                 abs_rel += compute_abs_rel(outputs, targets)
                 delta1 += compute_delta1(outputs, targets)
 
-        avg_val_loss = running_val_loss / len(val_dataloader)
-        avg_abs_rel = abs_rel / len(val_dataloader)
-        avg_delta1 = delta1 / len(val_dataloader)
+        avg_val_loss = running_val_loss / len(val_dataloader_teacher)
+        avg_abs_rel = abs_rel / len(val_dataloader_teacher)
+        avg_delta1 = delta1 / len(val_dataloader_teache)
 
         print(f"Epoch [{epoch + 1}/{num_epochs}] Validation Loss: {avg_val_loss:.4f}")
-
+        print(f"Epoch [{epoch + 1}/{num_epochs}] Abs Rel: {avg_abs_rel:.4f}")
+        print(f"Epoch [{epoch + 1}/{num_epochs}] Delta1: {avg_delta1:.4f}")
         wandb.log({
             "train_loss": epoch_loss,
             "val_loss": avg_val_loss,
@@ -208,19 +209,21 @@ def train_student():
             for inputs, targets in val_dataloader_student:
                 B = inputs.shape[0]
                 inputs, targets = inputs.to(device), targets.to(device)
-                with autocast(dtype=torch.bfloat16):
-                    outputs, burning_feature = model(inputs)
-                    frozen_feature = frozen_model.get_intermediate_layers(inputs[B // 3:(B // 3) * 2], n=1,return_class_token=False)
-                    loss = loss_module(outputs, targets, len_data=(inputs.shape[0]), disparity=True,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+                outputs, burning_feature = model(inputs)
+                frozen_feature = frozen_model.get_intermediate_layers(inputs[B // 3:(B // 3) * 2], n=1,return_class_token=False)
+                loss = loss_module(outputs, targets, len_data=(inputs.shape[0]), disparity=True,frozen_encoder_result=frozen_feature[0], encoder_result=burning_feature)
+                outputs = scale_shift_correction(outputs, targets)
                 running_val_loss += loss.item()
                 abs_rel += compute_abs_rel(outputs, targets)
                 delta1 += compute_delta1(outputs, targets)
 
-        avg_val_loss = running_val_loss / len(val_dataloader)
-        avg_abs_rel = abs_rel / len(val_dataloader)
-        avg_delta1 = delta1 / len(val_dataloader)
+        avg_val_loss = running_val_loss / len(val_dataloader_student)
+        avg_abs_rel = abs_rel / len(val_dataloader_student)
+        avg_delta1 = delta1 / len(val_dataloader_student)
 
         print(f"Epoch [{epoch + 1}/{num_epochs}] Validation Loss: {avg_val_loss:.4f}")
+        print(f"Epoch [{epoch + 1}/{num_epochs}] Abs Rel: {avg_abs_rel:.4f}")
+        print(f"Epoch [{epoch + 1}/{num_epochs}] Delta1: {avg_delta1:.4f}")
 
         wandb.log({
             "train_loss": epoch_loss,

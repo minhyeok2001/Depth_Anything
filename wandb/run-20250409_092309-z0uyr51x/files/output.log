@@ -1,0 +1,139 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:171: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:185: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2
+  with autocast(dtype=torch.bfloat16):
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.3291, 0.3248, 0.3248,  ..., 0.8291, 0.8291, 0.8291], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(97746.4531, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Epoch [1/20], Batch [0], Loss: 2.0000
+4it [00:38,  9.26s/it]
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.7592, 0.7592, 0.7592,  ..., 0.5288, 0.5340, 0.5340], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(128259.4297, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([1.0000, 1.0000, 1.0000,  ..., 0.7342, 0.7257, 0.7215], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(115693.6719, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6720, 0.6720, 0.6720,  ..., 0.1600, 0.1560, 0.1560], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(127888.2344, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0409, 0.0409, 0.0409,  ..., 0.6318, 0.6318, 0.6318], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(135111.6719, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6509, 0.6509, 0.6462,  ..., 0.6462, 0.6462, 0.6462], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(108054.4375, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.9245, 0.9340, 0.9340], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(121701.9922, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.7343, 0.7343, 0.7343,  ..., 0.5175, 0.5175, 0.5245], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(138200.9062, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5701, 0.5701, 0.5701,  ..., 0.8224, 0.8224, 0.8224], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(167838.7812, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.9437, 0.9437, 0.9437,  ..., 0.0000, 0.0000, 0.0000], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(103727.8281, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.2120, 0.2120, 0.2120,  ..., 0.6141, 0.6196, 0.6196], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(140249.0938, device='cuda:0')
+pred aggregation ( 1st element ): tensor(0., device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 190, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 190, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

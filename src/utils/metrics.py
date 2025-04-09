@@ -3,13 +3,19 @@ import torch
 def scale_shift_correction(pred_batch,y_batch):
     temp = []
     for pred,y in zip(pred_batch,y_batch):
+        pred = pred.to(torch.float32)
+        y = y.to(torch.float32)
+        
         flat_pred = pred.flatten()
         flat_y = y.flatten()
 
-        pred_hat = torch.stack([flat_pred,torch.ones_like(flat_pred)],dim=1)
+        pred_hat = torch.stack([flat_pred, torch.ones_like(flat_pred)], dim=1)
+
+        
         element_1 = pred_hat.T @ pred_hat
         element_2 = pred_hat.T @ flat_y
-        h_opt = torch.inverse(element_1) @ element_2
+
+        h_opt = torch.pinverse(element_1) @ element_2 ## singular matrix가 되서 inverse가 존재하지 않는 경우 핸들링 
 
         s = h_opt[0]
         t = h_opt[1]

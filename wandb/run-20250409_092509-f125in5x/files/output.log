@@ -1,0 +1,99 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:171: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:185: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2
+  with autocast(dtype=torch.bfloat16):
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6375, 0.6375, 0.6375,  ..., 0.3000, 0.3000, 0.3042], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0009,  ..., 0.0205, 0.0186, 0.0117], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(117358.3125, device='cuda:0')
+pred aggregation ( 1st element ): tensor(4931.7993, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Epoch [1/20], Batch [0], Loss: 2.9990
+1it [00:10, 10.34s/it]
+Epoch [1/20] Loss: 2.9990
+2
+C:\Users\mhroh\Depth_Anything\src\train.py:211: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(dtype=torch.bfloat16):
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.8297, 0.8341, 0.8428], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0001, 0.0018,  ..., 0.0125, 0.0140, 0.0154], device='cuda:0')
+y aggregation ( 1st element ): tensor(129936.6094, device='cuda:0')
+pred aggregation ( 1st element ): tensor(5525.3652, device='cuda:0')
+feature_loss skipped!!
+Epoch [1/20] Validation Loss: 2.9703
+Best checkpoint saved at epoch 1 with validation loss 2.9703
+1it [00:09,  9.17s/it]
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5701, 0.5701, 0.5701,  ..., 0.8224, 0.8224, 0.8224], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0123, 0.0107, 0.0087], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(167838.7812, device='cuda:0')
+pred aggregation ( 1st element ): tensor(8836.7129, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Epoch [2/20], Batch [0], Loss: 2.6574
+Epoch [2/20] Loss: 2.6574
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6386, 0.6386, 0.6386,  ..., 0.7028, 0.7028, 0.7068], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0007,  ..., 0.0159, 0.0178, 0.0089], device='cuda:0')
+y aggregation ( 1st element ): tensor(128095.3906, device='cuda:0')
+pred aggregation ( 1st element ): tensor(4402.7627, device='cuda:0')
+feature_loss skipped!!
+Epoch [2/20] Validation Loss: 3.1291
+0it [00:08, ?it/s]
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.6818, 0.6818, 0.6818], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0023, 0.0043, 0.0045], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(157694.8438, device='cuda:0')
+pred aggregation ( 1st element ): tensor(7989.4243, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 190, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 283, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 190, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

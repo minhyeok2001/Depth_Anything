@@ -14,7 +14,7 @@ student_hyper_parameter:
   batch_size: 6
   learning_rate: 0.00001
   patient: 5
-  train_data_size : 9000
-  val_data_size : 150
+  train_data_size : 3
+  val_data_size : 3
   threshold : 0.85
 
