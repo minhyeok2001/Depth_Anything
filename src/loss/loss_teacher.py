@@ -43,11 +43,13 @@ class Loss_teacher(nn.Module):
         # print("d_hat y: ", self._d_hat(y))
         return torch.abs(self._d_hat(pred) - self._d_hat(y))
 
-    def forward(self, pred, y, disparity=False):
+    def forward(self, pred, y, disparity=True):
         """
         :param pred: Prediction per pixel. size : BxHxW
         :param y: Ground truth. size : BxHxW
         """
+
+        B, H, W = pred.shape
 
         pred = pred.view(B, H * W)
         y = y.squeeze()

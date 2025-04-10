@@ -1,0 +1,15 @@
+{"time":"2025-04-10T10:38:45.2707187+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"C:\\Users\\mhroh\\Depth_Anything\\wandb\\run-20250410_103845-tv0lapvl\\logs\\debug-core.log"}
+{"time":"2025-04-10T10:38:45.3880842+09:00","level":"INFO","msg":"created new stream","id":"tv0lapvl"}
+{"time":"2025-04-10T10:38:45.3880842+09:00","level":"INFO","msg":"stream: started","id":"tv0lapvl"}
+{"time":"2025-04-10T10:38:45.3880842+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:38:45.3880842+09:00","level":"INFO","msg":"sender: started","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:38:45.3886297+09:00","level":"INFO","msg":"handler: started","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:38:45.7319678+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T10:43:47.3210664+09:00","level":"INFO","msg":"stream: closing","id":"tv0lapvl"}
+{"time":"2025-04-10T10:43:47.3215882+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T10:43:47.3226485+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T10:43:48.0630253+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T10:43:48.3388385+09:00","level":"INFO","msg":"handler: closed","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:43:48.3389712+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:43:48.3389712+09:00","level":"INFO","msg":"sender: closed","stream_id":"tv0lapvl"}
+{"time":"2025-04-10T10:43:48.3398006+09:00","level":"INFO","msg":"stream: closed","id":"tv0lapvl"}

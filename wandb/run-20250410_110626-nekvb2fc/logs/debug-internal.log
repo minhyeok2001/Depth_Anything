@@ -1,0 +1,15 @@
+{"time":"2025-04-10T11:06:26.5267936+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"C:\\Users\\mhroh\\Depth_Anything\\wandb\\run-20250410_110626-nekvb2fc\\logs\\debug-core.log"}
+{"time":"2025-04-10T11:06:26.6452071+09:00","level":"INFO","msg":"created new stream","id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:26.6457118+09:00","level":"INFO","msg":"stream: started","id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:26.6457118+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:26.6457118+09:00","level":"INFO","msg":"handler: started","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:26.6457118+09:00","level":"INFO","msg":"sender: started","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:26.9951278+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T11:06:54.2759565+09:00","level":"INFO","msg":"stream: closing","id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:54.2759565+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T11:06:54.2765273+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T11:06:55.0127616+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T11:06:55.5136284+09:00","level":"INFO","msg":"handler: closed","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:55.5136284+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:55.5136284+09:00","level":"INFO","msg":"sender: closed","stream_id":"nekvb2fc"}
+{"time":"2025-04-10T11:06:55.5141326+09:00","level":"INFO","msg":"stream: closed","id":"nekvb2fc"}

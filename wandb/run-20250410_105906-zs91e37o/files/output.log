@@ -1,0 +1,49 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:50: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:63: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(dtype=torch.bfloat16):
+0it [00:02, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 65, in train_teacher
+    loss = loss_module(outputs, targets, disparity=True)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_teacher.py", line 52, in forward
+    pred = pred.view(B, H * W)
+NameError: name 'B' is not defined
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 65, in train_teacher
+    loss = loss_module(outputs, targets, disparity=True)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\loss\loss_teacher.py", line 52, in forward
+    pred = pred.view(B, H * W)
+NameError: name 'B' is not defined

@@ -1,0 +1,284 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:172: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:186: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2
+  with autocast(dtype=torch.bfloat16):
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.3944, 0.3944, 0.3944,  ..., 0.7042, 0.7042, 0.7042], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(102258.1406, device='cuda:0')
+pred aggregation ( 1st element ): tensor(36.7448, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+Epoch [1/20], Batch [0], Loss: 3.8600
+5it [00:47,  9.54s/it]
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0070, 0.0070, 0.0070,  ..., 1.0000, 1.0000, 1.0000], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(86908.6719, device='cuda:0')
+pred aggregation ( 1st element ): tensor(540.5688, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.9429, 0.9429, 0.9429], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(143196.1406, device='cuda:0')
+pred aggregation ( 1st element ): tensor(2882.1511, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.8725, 0.8725, 0.8725,  ..., 0.2353, 0.2353, 0.2451], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(112007.0938, device='cuda:0')
+pred aggregation ( 1st element ): tensor(5775.6167, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.9947, 0.9894, 0.9894,  ..., 0.8032, 0.8085, 0.8085], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(106008.2422, device='cuda:0')
+pred aggregation ( 1st element ): tensor(11069.4619, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.1786, 0.1875, 0.1875,  ..., 0.9018, 0.9107, 0.9107], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(94449.8438, device='cuda:0')
+pred aggregation ( 1st element ): tensor(8096.2397, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5217, 0.5217, 0.5155,  ..., 0.6025, 0.6025, 0.5963], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(66872.7812, device='cuda:0')
+pred aggregation ( 1st element ): tensor(12993.9414, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.9485, 0.9485, 0.9485,  ..., 0.8824, 0.8897, 0.8897], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(105594.7266, device='cuda:0')
+pred aggregation ( 1st element ): tensor(14032.8955, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0184, 0.0184, 0.0184,  ..., 1.0000, 1.0000, 1.0000], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(119450.8594, device='cuda:0')
+pred aggregation ( 1st element ): tensor(13812.5078, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0., 0., 0.,  ..., 1., 1., 1.], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(127021.7500, device='cuda:0')
+pred aggregation ( 1st element ): tensor(12626.8535, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5980, 0.5980, 0.5930,  ..., 1.0000, 1.0000, 1.0000], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(140711., device='cuda:0')
+pred aggregation ( 1st element ): tensor(12101.0020, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [10], Loss: 2.6475
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0423, 0.0423, 0.0423,  ..., 0.9471, 0.9418, 0.9418], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(137224.4062, device='cuda:0')
+pred aggregation ( 1st element ): tensor(10636.1143, device='cuda:0', grad_fn=<SumBackward1>)
+feature_loss skipped!!
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5325, 0.5325, 0.5325,  ..., 0.7811, 0.7811, 0.7870], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(138380.9688, device='cuda:0')
+pred aggregation ( 1st element ): tensor(9792.3945, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.3929, 0.3988, 0.4345,  ..., 0.1250, 0.1310, 0.1310], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(78619.5781, device='cuda:0')
+pred aggregation ( 1st element ): tensor(9295.5820, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.4789, 0.4789, 0.4695,  ..., 0.3052, 0.3099, 0.3099], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(92480.2266, device='cuda:0')
+pred aggregation ( 1st element ): tensor(6683.1489, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.1646, 0.1646, 0.1646,  ..., 0.9557, 0.9557, 0.9557], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(67815.4375, device='cuda:0')
+pred aggregation ( 1st element ): tensor(7847.6592, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6880, 0.6880, 0.6880,  ..., 0.1440, 0.1440, 0.1440], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(99797.7109, device='cuda:0')
+pred aggregation ( 1st element ): tensor(2419.2437, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.2719, 0.2719, 0.2719,  ..., 0.9908, 0.9908, 0.9908], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(73875.8594, device='cuda:0')
+pred aggregation ( 1st element ): tensor(2955.9690, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.2564, 0.2564, 0.2628,  ..., 0.9744, 0.9744, 0.9744], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(66139.2422, device='cuda:0')
+pred aggregation ( 1st element ): tensor(4476.6816, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.9500, 0.9500, 0.9500,  ..., 0.1643, 0.1714, 0.1714], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(58161.6719, device='cuda:0')
+pred aggregation ( 1st element ): tensor(2470.0439, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.9344, 0.9344, 0.9344], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(150529.1562, device='cuda:0')
+pred aggregation ( 1st element ): tensor(574.9446, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [20], Loss: 2.7311
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.1556, 0.1556, 0.1481,  ..., 0.9704, 0.9704, 0.9778], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(68552.4375, device='cuda:0')
+pred aggregation ( 1st element ): tensor(2209.6255, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0455, 0.0455, 0.0455,  ..., 0.8788, 0.8788, 0.8788], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(46897.7891, device='cuda:0')
+pred aggregation ( 1st element ): tensor(14947.6875, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.3828, 0.3828, 0.3828,  ..., 0.9219, 0.9219, 0.9219], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0068, 0.0012, 0.0000], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(121101.7109, device='cuda:0')
+pred aggregation ( 1st element ): tensor(10836.6875, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.2824, 0.2824, 0.2824,  ..., 0.5235, 0.5235, 0.5235], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0176, 0.0122, 0.0000], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(92444.6172, device='cuda:0')
+pred aggregation ( 1st element ): tensor(8784.8711, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.1371, 0.1371, 0.1371,  ..., 0.3829, 0.3829, 0.3829], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(128540.3906, device='cuda:0')
+pred aggregation ( 1st element ): tensor(9000.7871, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0079,  ..., 0.7953, 0.7953, 0.7953], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0190, 0.0146, 0.0027], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(114888.2891, device='cuda:0')
+pred aggregation ( 1st element ): tensor(11562.4805, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.6040, 0.6040, 0.6040,  ..., 0.5839, 0.5839, 0.5839], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0122, 0.0066, 0.0005], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(113651.3906, device='cuda:0')
+pred aggregation ( 1st element ): tensor(12313.5547, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.5526, 0.5526, 0.5526,  ..., 0.8158, 0.7895, 0.8158], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0093, 0.0042, 0.0000], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(104382.0781, device='cuda:0')
+pred aggregation ( 1st element ): tensor(9405.8701, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.2265, 0.2265, 0.2265,  ..., 0.8453, 0.8729, 0.8619], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(93490.6094, device='cuda:0')
+pred aggregation ( 1st element ): tensor(9024.9062, device='cuda:0', grad_fn=<SumBackward1>)
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.4054, 0.4054, 0.3964,  ..., 0.8829, 0.8829, 0.8919], device='cuda:0')
+pred ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.0125, 0.0044, 0.0000], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(80540.7656, device='cuda:0')
+pred aggregation ( 1st element ): tensor(11172.9336, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [30], Loss: 2.0354
+2
+torch.Size([2, 1024, 768])
+gt ( 1st element ): tensor([0.4300, 0.4300, 0.4200,  ..., 1.0000, 1.0000, 1.0000], device='cuda:0')
+pred ( 1st element ): tensor([0., 0., 0.,  ..., 0., 0., 0.], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(81972.3750, device='cuda:0')
+pred aggregation ( 1st element ): tensor(7690.8008, device='cuda:0', grad_fn=<SumBackward1>)
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 191, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 286, in main
+    train_student()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 191, in train_student
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

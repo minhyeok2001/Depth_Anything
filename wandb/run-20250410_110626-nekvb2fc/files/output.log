@@ -1,0 +1,65 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:50: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:63: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(dtype=torch.bfloat16):
+gt ( 1st element ): tensor([0.8960, 0.8960, 0.8960,  ..., 0.0636, 0.0636, 0.0636], device='cuda:0')
+pred ( 1st element ): tensor([0.1641, 0.1670, 0.1680,  ..., 0.1582, 0.1523, 0.1621], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(111640.4141, device='cuda:0')
+pred aggregation ( 1st element ): tensor(33374.1562, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [0], Loss: 1.4507
+2it [00:23, 11.91s/it]
+gt ( 1st element ): tensor([0.1447, 0.1447, 0.1447,  ..., 0.2895, 0.3026, 0.3026], device='cuda:0')
+pred ( 1st element ): tensor([0.1680, 0.1680, 0.1709,  ..., 0.1553, 0.1484, 0.1611], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(34619.8047, device='cuda:0')
+pred aggregation ( 1st element ): tensor(33456.7578, device='cuda:0', grad_fn=<SumBackward1>)
+gt ( 1st element ): tensor([0., 0., 0.,  ..., 1., 1., 1.], device='cuda:0')
+pred ( 1st element ): tensor([0.1699, 0.1699, 0.1719,  ..., 0.1670, 0.1670, 0.1719], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(90384.9141, device='cuda:0')
+pred aggregation ( 1st element ): tensor(35417.3789, device='cuda:0', grad_fn=<SumBackward1>)
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 66, in train_teacher
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 66, in train_teacher
+    scaler.scale(loss).backward()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

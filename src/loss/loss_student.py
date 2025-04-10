@@ -62,7 +62,7 @@ class Loss_student(nn.Module):
         loss_feat = 1 - torch.mean((dot_product / denominator))
         return loss_feat
 
-    def forward(self, pred, y, len_data, disparity=False ,frozen_encoder_result=None, encoder_result=None):
+    def forward(self, pred, y, len_data, disparity=True ,frozen_encoder_result=None, encoder_result=None):
         """
         :param pred: Prediction per pixel. size : BxHxW
         :param y: Ground truth. size : BxHxW

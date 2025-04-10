@@ -1,0 +1,132 @@
+Using cache found in C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Total parameters: 116806593
+C:\Users\mhroh\Depth_Anything\src\train.py:50: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+0it [00:00, ?it/s]C:\Users\mhroh\Depth_Anything\src\train.py:63: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(dtype=torch.bfloat16):
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.2500, 0.2500, 0.2500], device='cuda:0')
+pred ( 1st element ): tensor([0.1108, 0.1162, 0.1182,  ..., 0.0952, 0.0923, 0.0898], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(106693.2344, device='cuda:0')
+pred aggregation ( 1st element ): tensor(22490.5781, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20], Batch [0], Loss: 1.5819
+2it [00:17,  8.80s/it]
+gt ( 1st element ): tensor([0.5701, 0.5701, 0.5701,  ..., 0.8224, 0.8224, 0.8224], device='cuda:0')
+pred ( 1st element ): tensor([0.1113, 0.1118, 0.1123,  ..., 0.0928, 0.0938, 0.0947], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(167838.7812, device='cuda:0')
+pred aggregation ( 1st element ): tensor(27816.2578, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [1/20] Loss: 1.3166
+gt ( 1st element ): tensor([0.0000, 0.0000, 0.0000,  ..., 0.6818, 0.6818, 0.6818], device='cuda:0')
+pred ( 1st element ): tensor([0.1134, 0.1179, 0.1195,  ..., 0.0984, 0.0900, 0.0991], device='cuda:0')
+y aggregation ( 1st element ): tensor(157694.8438, device='cuda:0')
+pred aggregation ( 1st element ): tensor(31025.2969, device='cuda:0')
+Epoch [1/20] Validation Loss: 0.9258
+Epoch [1/20] Abs Rel: 0.2911
+Epoch [1/20] Delta1: 0.6582
+Best checkpoint saved at epoch 1 with validation loss 0.9258
+1it [00:09,  9.50s/it]
+gt ( 1st element ): tensor([0.6509, 0.6509, 0.6462,  ..., 0.6462, 0.6462, 0.6462], device='cuda:0')
+pred ( 1st element ): tensor([0.1094, 0.1133, 0.1143,  ..., 0.0967, 0.0991, 0.0913], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+y aggregation ( 1st element ): tensor(108054.4375, device='cuda:0')
+pred aggregation ( 1st element ): tensor(22763.5000, device='cuda:0', grad_fn=<SumBackward1>)
+Epoch [2/20], Batch [0], Loss: 0.8613
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 64, in train_teacher
+    outputs = model(inputs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1845, in _call_impl
+    return inner()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1793, in inner
+    result = forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\models\model.py", line 175, in forward
+    features = self.encoder.get_intermediate_layers(x, 4, return_class_token=False)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 309, in get_intermediate_layers
+    outputs = self._get_intermediate_layers_not_chunked(x, n)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 278, in _get_intermediate_layers_not_chunked
+    x = blk(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 254, in forward
+    return super().forward(x_or_x_list)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 113, in forward
+    x = x + ffn_residual_func(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 94, in ffn_residual_func
+    return self.ls2(self.mlp(self.norm2(x)))
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\mlp.py", line 35, in forward
+    x = self.fc1(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 289, in <module>
+    main()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 284, in main
+    train_teacher()
+  File "C:\Users\mhroh\Depth_Anything\src\train.py", line 64, in train_teacher
+    outputs = model(inputs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1845, in _call_impl
+    return inner()
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1793, in inner
+    result = forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\Depth_Anything\src\models\model.py", line 175, in forward
+    features = self.encoder.get_intermediate_layers(x, 4, return_class_token=False)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 309, in get_intermediate_layers
+    outputs = self._get_intermediate_layers_not_chunked(x, n)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\models\vision_transformer.py", line 278, in _get_intermediate_layers_not_chunked
+    x = blk(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 254, in forward
+    return super().forward(x_or_x_list)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 113, in forward
+    x = x + ffn_residual_func(x)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py", line 94, in ffn_residual_func
+    return self.ls2(self.mlp(self.norm2(x)))
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\mlp.py", line 35, in forward
+    x = self.fc1(x)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\mhroh\anaconda3\envs\dl_env\lib\site-packages\torch\nn\modules\linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

@@ -62,7 +62,7 @@ def train_teacher():
             optimizer.zero_grad()
             with autocast(dtype=torch.bfloat16):
                 outputs = model(inputs)
-                loss = loss_module(outputs, targets, disparity=False)
+                loss = loss_module(outputs, targets, disparity=True)
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
@@ -85,7 +85,7 @@ def train_teacher():
                 inputs, targets = inputs.to(device), targets.to(device)
            
                 outputs = model(inputs)
-                loss = loss_module(outputs, targets, disparity=False)
+                loss = loss_module(outputs, targets, disparity=True)
                 outputs = scale_shift_correction(outputs, targets)
                 running_val_loss += loss.item()
                 abs_rel += compute_abs_rel(outputs, targets)
@@ -93,7 +93,7 @@ def train_teacher():
 
         avg_val_loss = running_val_loss / len(val_dataloader_teacher)
         avg_abs_rel = abs_rel / len(val_dataloader_teacher)
-        avg_delta1 = delta1 / len(val_dataloader_teache)
+        avg_delta1 = delta1 / len(val_dataloader_teacher)
 
         print(f"Epoch [{epoch + 1}/{num_epochs}] Validation Loss: {avg_val_loss:.4f}")
         print(f"Epoch [{epoch + 1}/{num_epochs}] Abs Rel: {avg_abs_rel:.4f}")
