@@ -64,6 +64,12 @@ To train the model, run:
 python -m src.train (--teacher or --student)
 ```
 
+To resume training the model, run:
+
+```bash
+python -m src.train (--teacher or --student) --resume --run_id {actuall wandb id}
+// run_id is from 'wandb runs' that you want to resume. 
+```
 
 To predict the model, run:
 
