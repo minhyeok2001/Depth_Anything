@@ -19,41 +19,37 @@ from src.utils.check_device import device
 from src.utils.metrics import scale_shift_correction, compute_abs_rel, compute_delta1
 from src.models.model import DepthModel
 
-def train_teacher():
+def train_teacher(model, hyper_params, optimizer=None, scheduler=None, scaler=None, run=None, start_epoch=0):
     from src.data.data_loader_teacher import dataloader_teacher, val_dataloader_teacher
     from src.loss.loss_teacher import Loss_teacher
     print("Running teacher training...")
 
-    # hyper params
-    config_path = "configs/config.yaml"
-    with open(config_path, "r") as file:
-        config = yaml.safe_load(file)
-
-    hyper_params = config["teacher_hyper_parameter"]
     lr = hyper_params["learning_rate"]
     num_epochs = hyper_params["epochs"]
     patient = hyper_params["patient"]
 
-    run = wandb.init(project="DepthAnything_teacher", entity="mhroh01-ajou-university", config=hyper_params)
-
-    model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
     total_params = sum(p.numel() for p in model.parameters())
     print("Total parameters:", total_params)
 
-    optimizer = optim.AdamW(model.parameters(), lr=lr)
-    scheduler = ExponentialLR(optimizer, gamma=0.95)
     loss_module = Loss_teacher()
+
+    if not optimizer :
+        optimizer = optim.AdamW(model.parameters(), lr=hyper_params["learning_rate"])
+        
+    if not scheduler :
+        scheduler = ExponentialLR(optimizer, gamma=0.95)
 
     wandb.watch(model, log="all")
 
     # AMP GradScaler 생성
-    scaler = GradScaler()
+    if not scaler :
+        scaler = GradScaler()
 
     best_val_loss = float('inf')
     best_epoch = 0
     trial = 0
 
-    for epoch in range(num_epochs):
+    for epoch in range(start_epoch,num_epochs):
         model.train()
         running_loss = 0.0
 
@@ -114,7 +110,9 @@ def train_teacher():
                 'epoch': epoch + 1,
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
-            }, f'best_checkpoint_teahcer.pth')
+                'scheduler_state_dict': scheduler.state_dict(), 
+                'scaler_state_dict': scaler.state_dict()       
+            }, 'best_checkpoint_teacher.pth')
             print(f"Best checkpoint saved at epoch {epoch + 1} with validation loss {avg_val_loss:.4f}")
             trial = 0
         else:
@@ -128,25 +126,15 @@ def train_teacher():
     run.finish()
 
 
-def train_student():
+def train_student(model, hyper_params, optimizer=None, scheduler=None, scaler=None, run=None, start_epoch=0):
     from src.data.data_loader_student import dataloader_student, val_dataloader_student
     from src.loss.loss_student import Loss_student
     print("Running student training...")
 
-    # hyper params
-    config_path = "configs/config.yaml"
-    with open(config_path, "r") as file:
-        config = yaml.safe_load(file)
-
-    hyper_params = config["student_hyper_parameter"]
     lr = hyper_params["learning_rate"]
     num_epochs = hyper_params["epochs"]
     patient = hyper_params["patient"]
     threshold = hyper_params["threshold"]
-
-    run = wandb.init(project="DepthAnything_student", entity="mhroh01-ajou-university", config=hyper_params)
-
-    model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, student=True).to(device)
 
     frozen_encoder = "vitb"
     frozen_model = torch.hub.load(
@@ -162,20 +150,25 @@ def train_student():
     total_params = sum(p.numel() for p in model.parameters())
     print("Total parameters:", total_params)
 
-    optimizer = optim.AdamW(model.parameters(), lr=lr)
-    scheduler = ExponentialLR(optimizer, gamma=0.95)
+    if not optimizer :
+        optimizer = optim.AdamW(model.parameters(), lr=hyper_params["learning_rate"])
+
+    if not scheduler :
+        scheduler = ExponentialLR(optimizer, gamma=0.95)
+
     loss_module = Loss_student(device=device,threshold=threshold)
 
     wandb.watch(model, log="all")
 
     # AMP GradScaler 생성
-    scaler = GradScaler()
+    if not scaler :
+        scaler = GradScaler()
 
     best_val_loss = float('inf')
     best_epoch = 0
     trial = 0
 
-    for epoch in range(num_epochs):
+    for epoch in range(start_epoch, num_epochs):
         model.train()
         running_loss = 0.0
 
@@ -241,7 +234,9 @@ def train_student():
                 'epoch': epoch + 1,
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
-            }, f'best_checkpoint_student.pth')
+                'scheduler_state_dict': scheduler.state_dict(), 
+                'scaler_state_dict': scaler.state_dict()       
+            }, 'best_checkpoint_student.pth')
             print(f"Best checkpoint saved at epoch {epoch + 1} with validation loss {avg_val_loss:.4f}")
             trial = 0
         else:
@@ -264,13 +259,71 @@ def default_function(device=device):
     wandb.login(key=api_key)
 
 
+def wandb_init(model_name=None,device=device):
+    config_path = "configs/config.yaml"
+    with open(config_path, "r") as file:
+        config = yaml.safe_load(file)
+
+    if model_name == "student":
+        hyper_params = config["student_hyper_parameter"]
+        run = wandb.init(project="DepthAnything_student", entity="mhroh01-ajou-university", config=hyper_params)
+        model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, student=True).to(device)
+        
+    elif model_name == "teacher":
+        hyper_params = config["teacher_hyper_parameter"]
+        run = wandb.init(project="DepthAnything_teacher", entity="mhroh01-ajou-university", config=hyper_params)
+        model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+
+    return model, hyper_params, run
+
+
+def load_params(model,checkpoint,hyper_params):
+
+    optimizer = optim.AdamW(model.parameters(), lr=hyper_params["learning_rate"])
+    scheduler = ExponentialLR(optimizer, gamma=0.95)
+    scaler = GradScaler()
+
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+    scaler.load_state_dict(checkpoint['scaler_state_dict'])
+    start_epoch = checkpoint['epoch']
+
+    return model, optimizer, scheduler, scaler, start_epoch
+
+
+
+def wandb_resume(model_name=None,device=device,run_id=None):
+    config_path = "configs/config.yaml"
+    with open(config_path, "r") as file:
+        config = yaml.safe_load(file)
+
+    if model_name == "student":
+        hyper_params = config["student_hyper_parameter"]
+        run = wandb.init(project="DepthAnything_student", entity="mhroh01-ajou-university", config=hyper_params,resume="allow",id=run_id)
+        model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, student=True).to(device)
+        checkpoint = torch.load("best_checkpoint_student.pth")
+        model, optimizer, scheduler, scaler, start_epoch = load_params(model,checkpoint,hyper_params)
+        print(f"Resumed student from epoch {start_epoch}")
+        
+    elif model_name == "teacher":
+        hyper_params = config["teacher_hyper_parameter"]
+        run = wandb.init(project="DepthAnything_teacher", entity="mhroh01-ajou-university", config=hyper_params,resume="allow",id=run_id)
+        model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+        checkpoint = torch.load("best_checkpoint_teacher.pth")
+        model ,optimizer, scheduler, scaler, start_epoch = load_params(model,checkpoint,hyper_params)
+        print(f"Resumed teacher from epoch {start_epoch}")
+
+    return model, hyper_params, optimizer, scheduler, scaler, run, start_epoch
 
 def main():
     parser = argparse.ArgumentParser(description="Train teacher or student model")
     parser.add_argument('--teacher', action='store_true', help="Run teacher training")
     parser.add_argument('--student', action='store_true', help="Run student training")
+    parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--run_id',type=str, help="wand run_id (required only if --resume is used)" )
+    # parser 객체 생성시, 자동으로 -- 같은 dash는 없어지고 내부 인스턴스 호출 가능
     args = parser.parse_args()
-
 
     if args.teacher and args.student:
         raise ValueError("Cannot specify both --teacher and --student.")
@@ -280,10 +333,24 @@ def main():
 
     default_function()
 
-    if args.teacher:
-        train_teacher()
-    elif args.student:
-        train_student()
-
+    if args.resume :
+        if args.run_id is None:
+            raise ValueError("--run_id is required when using --resume")
+        else :
+            if args.teacher:
+                model, hyper_params, optimizer, run, scheduler, scaler, start_epoch = wandb_resume(model_name="teacher",device=device,run_id=args.run_id)
+                train_teacher(model,hyper_params,optimizer,scheduler, scaler,run,start_epoch)
+            elif args.student:
+                model, hyper_params, optimizer, run, scheduler, scaler, start_epoch = wandb_resume(model_name="student",device=device,run_id=args.run_id)
+                train_student(model,hyper_params,optimizer,scheduler, scaler,run,start_epoch)
+        
+    else :  
+        if args.teacher:
+            model, hyper_params, run= wandb_init(model_name="teacher",device=device)
+            train_teacher(model=model,hyper_params=hyper_params,run=run)
+        elif args.student:
+            model, hyper_params, run= wandb_init(model_name="student",device=device)
+            train_student(model=model,hyper_params=hyper_params,run=run)
+    
 if __name__ == "__main__":
     main()
