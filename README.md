@@ -79,3 +79,26 @@ python -m src.pred (--teacher or --student)
 
 ---
 
+
+## 2. Idea Application - Canonical Correlation Analysis with semantic information from depth map
+
+**_What if we conduct feature alignment using embeddings derived from the depth map input?_**
+
+< Basic idea >
+
+- Feature alignment loss on Depth Anything model targets to learn semantic information from frozen DINOv2 encoder per patch
+- margin α is to prevent overwhelming semantic information rather than depth information
+
+   -> Why don't we just use **_semantic information from depth map_** rather than RGB map?
+  
+   -> Let's use fintuned MAE to use feature alignment loss
+
+  
+---
+
+
+## 3. Ablation study
+
+
+---
+
