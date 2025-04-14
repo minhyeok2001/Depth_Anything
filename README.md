@@ -1,12 +1,15 @@
 # Depth_Anything
 
 1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process with metrics**
-   
-2. Idea application on Depth Anything
-   - _Is margin for feature alignment loss necessary?_
-     
-   -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 
+2. Basic Teacher & Student Result 
+   
+3. Idea application on Depth Anything
+   - _Is margin for feature alignment loss necessary?_
+       -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
+
+4. Ablation study
+   
 ---
 
 Original paper & code
@@ -78,9 +81,11 @@ python -m src.pred (--teacher or --student)
 ```
 
 ---
+## 2. Basic Teacher & Student Result 
 
+---
 
-## 2. Idea Application - Canonical Correlation Analysis with semantic information from depth map
+## 3. Idea Application - Canonical Correlation Analysis with semantic information from depth map
 
 **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 
@@ -97,7 +102,7 @@ python -m src.pred (--teacher or --student)
 ---
 
 
-## 3. Ablation study
+## 4. Ablation study
 
 
 ---
