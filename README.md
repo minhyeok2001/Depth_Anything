@@ -91,7 +91,7 @@ python -m src.pred (--teacher or --student)
 
    -> Why don't we just use **_semantic information from depth map_** rather than RGB map?
   
-   -> Let's use fintuned MAE to use feature alignment loss
+   -> Let's use fintuned DINOv2 to use feature alignment loss
 
   
 ---
