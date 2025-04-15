@@ -14,7 +14,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 dataset_path = os.getenv("GOOGLELANDMARK_DATASET_PATH")
 
-def load_checkpoint(model, checkpoint_path):
+def load_checkpoint(model, checkpoint_path,device=device):
     if not os.path.exists(checkpoint_path):
         raise FileNotFoundError(f"Checkpoint file not found: {checkpoint_path}")
     checkpoint = torch.load(checkpoint_path, map_location=device)
@@ -39,7 +39,7 @@ class PseudoImageDataset(Dataset):
         image = self.transform(image)
         return image, os.path.basename(image_path)
 
-def generate_pseudo_labels(image_dir, save_dir, checkpoint_path, batch_size=4, num_workers=4):
+def generate_pseudo_labels(image_dir, save_dir, checkpoint_path, batch_size=4, num_workers=4,device=device):
     os.makedirs(save_dir, exist_ok=True)
     dataset = PseudoImageDataset(image_dir)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
