@@ -83,6 +83,21 @@ python -m src.predict (--teacher or --student)
 ---
 ## 2. Basic Teacher & Student Result 
 
+### < Teacher >
+
+Avg Validation Loss: 0.2292
+
+Avg AbsRel: 0.0692
+
+Avg Delta1: 0.9458
+
+![teacher_1st](image/hola1.png)
+![teacher_2nd](image/hola2.png)
+
+
+
+---
+
 ---
 
 ## 3. Idea Application - Canonical Correlation Analysis with semantic information from depth map
