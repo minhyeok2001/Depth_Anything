@@ -77,7 +77,7 @@ python -m src.train (--teacher or --student) --resume --run_id {actuall wandb id
 To predict the model, run:
 
 ```bash
-python -m src.pred (--teacher or --student)
+python -m src.predict (--teacher or --student)
 ```
 
 ---
