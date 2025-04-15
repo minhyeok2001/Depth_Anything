@@ -77,11 +77,26 @@ python -m src.train (--teacher or --student) --resume --run_id {actuall wandb id
 To predict the model, run:
 
 ```bash
-python -m src.pred (--teacher or --student)
+python -m src.predict (--teacher or --student)
 ```
 
 ---
 ## 2. Basic Teacher & Student Result 
+
+### < Teacher >
+
+Avg Validation Loss: 0.2292
+
+Avg AbsRel: 0.0692
+
+Avg Delta1: 0.9458
+
+![teacher_1st](image/hola1.png)
+![teacher_2nd](image/hola2.png)
+
+
+
+---
 
 ---
 
