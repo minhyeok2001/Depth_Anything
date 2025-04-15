@@ -140,7 +140,7 @@ class DPTHead(nn.Module):
 
 # --- DPT + DINOv2 Encoder ---
 class DepthModel(nn.Module):
-    def __init__(self, features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, student=False):
+    def __init__(self, features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, student=False, depth_input=False):
         """
         encoder는 DINOv2 pretrained 모델
         DPT Head로 depth map 예측
@@ -166,10 +166,18 @@ class DepthModel(nn.Module):
         in_channels = self.encoder.blocks[0].attn.qkv.in_features
         self.student = student
 
+
+        # 만약 depth-map이 들어왔을 경우 1->3 conv 적용
+        self.depth_input = depth_input
+        self.input_conv = nn.Conv2d(1, 3, kernel_size=3, stride=1, padding=1)
+
         # DPT Head: depth map 예측 (nclass=1)
         self.head = DPTHead(1, in_channels, features, use_bn, out_channels=out_channels)
 
     def forward(self, x):
+        if x.shape[1] == 1 and self.depth_input:
+            x = self.input_conv(x)
+
         h, w = x.shape[-2:]
         # encoder로부터 중간 레벨 feature 4개 추출
         features = self.encoder.get_intermediate_layers(x, 4, return_class_token=False)

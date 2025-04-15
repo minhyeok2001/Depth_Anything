@@ -5,4 +5,4 @@ torch==2.6.0+cu118
 torchvision==0.21.0+cu118
 wandb==0.19.8
 tqdm==4.67.1
-wandb
+wandbx3

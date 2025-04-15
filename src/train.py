@@ -250,6 +250,101 @@ def train_student(model, hyper_params, optimizer=None, scheduler=None, scaler=No
         f"Training finished. Best checkpoint was from epoch {best_epoch + 1} with validation loss {best_val_loss:.4f}.")
     run.finish()
 
+def train_guide(model, hyper_params, optimizer=None, scheduler=None, scaler=None, run=None, start_epoch=0):
+    from src.data.data_loader_teacher import dataloader_guide, val_dataloader_guide
+    from src.loss.loss_teacher import Loss_guide
+    print("Running guide training...")
+    
+    lr = hyper_params["learning_rate"]
+    num_epochs = hyper_params["epochs"]
+    patient = hyper_params["patient"]
+    
+    total_params = sum(p.numel() for p in model.parameters())
+    print("Total parameters:", total_params)
+    
+    loss_module = Loss_guide()
+    
+    if not optimizer:
+        optimizer = optim.AdamW(model.parameters(), lr=lr)
+    
+    if not scheduler:
+        scheduler = ExponentialLR(optimizer, gamma=0.95)
+    
+    wandb.watch(model, log="all")
+    
+    # AMP GradScaler 생성
+    if not scaler:
+        scaler = GradScaler()
+    
+    best_val_loss = float('inf')
+    best_epoch = 0
+    trial = 0
+    
+    for epoch in range(start_epoch, num_epochs):
+        model.train()
+        running_loss = 0.0
+        
+        for batch_idx, (inputs, targets) in tqdm(enumerate(dataloader_guide), total=len(dataloader_guide)):
+            inputs, targets = inputs.to(device), targets.to(device)
+            optimizer.zero_grad()
+            with autocast(dtype=torch.bfloat16):
+                outputs = model(inputs)
+                loss = loss_module(outputs, targets)
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+            running_loss += loss.item()
+            
+            if batch_idx % 10 == 0:
+                print(f"Epoch [{epoch+1}/{num_epochs}], Batch [{batch_idx}], Loss: {loss.item():.4f}")
+        
+        epoch_loss = running_loss / len(dataloader_guide)
+        print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {epoch_loss:.4f}")
+        scheduler.step()
+        
+        # 검증 단계
+        model.eval()
+        running_val_loss = 0.0
+        
+        with torch.no_grad():
+            for inputs, targets in val_dataloader_guide:
+                inputs, targets = inputs.to(device), targets.to(device)
+                outputs = model(inputs)
+                loss = loss_module(outputs, targets)
+
+                running_val_loss += loss.item()
+    
+        avg_val_loss = running_val_loss / len(val_dataloader_guide)
+        
+        print(f"Epoch [{epoch+1}/{num_epochs}] Validation Loss: {avg_val_loss:.4f}")
+        wandb.log({
+            "train_loss": epoch_loss,
+            "val_loss": avg_val_loss,
+            "epoch": epoch+1
+        })
+        
+        # 베스트 체크포인트 저장
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            best_epoch = epoch
+            torch.save({
+                'epoch': epoch+1,
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'scheduler_state_dict': scheduler.state_dict(),
+                'scaler_state_dict': scaler.state_dict()
+            }, 'best_checkpoint_guide.pth')
+            print(f"Best checkpoint saved at epoch {epoch+1} with validation loss {avg_val_loss:.4f}")
+            trial = 0
+        else:
+            trial += 1
+        
+        if trial >= patient:
+            print("Early stopping triggered.")
+            break
+    
+    print(f"Training finished. Best checkpoint was from epoch {best_epoch+1} with validation loss {best_val_loss:.4f}.")
+    run.finish()
 def default_function(device=device):
     # GPU check
     device = device
@@ -273,6 +368,11 @@ def wandb_init(model_name=None,device=device):
         hyper_params = config["teacher_hyper_parameter"]
         run = wandb.init(project="DepthAnything_teacher", entity="mhroh01-ajou-university", config=hyper_params)
         model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False).to(device)
+
+    elif model_name == "guide":
+        hyper_params = config["guide_hyper_parameter"]
+        run = wandb.init(project="DepthAnything_guide", entity="mhroh01-ajou-university", config=hyper_params)
+        model = DepthModel(features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, localhub=False, depth_input=True).to(device) # conv 활성화 시키기.
 
     return model, hyper_params, run
 
@@ -320,6 +420,7 @@ def main():
     parser = argparse.ArgumentParser(description="Train teacher or student model")
     parser.add_argument('--teacher', action='store_true', help="Run teacher training")
     parser.add_argument('--student', action='store_true', help="Run student training")
+    parser.add_argument('--guide', action='store_true', help="Run student training")
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--run_id',type=str, help="wand run_id (required only if --resume is used)" )
     # parser 객체 생성시, 자동으로 -- 같은 dash는 없어지고 내부 인스턴스 호출 가능
@@ -351,6 +452,8 @@ def main():
         elif args.student:
             model, hyper_params, run= wandb_init(model_name="student",device=device)
             train_student(model=model,hyper_params=hyper_params,run=run)
-    
+        elif args.guide:
+            model, hyper_params, run= wandb_init(model_name="guide",device=device)   ## 가이드 모델은 stop 없습니다 .. NO RESUME
+            train_guide(model=model,hyper_params=hyper_params,run=run)
 if __name__ == "__main__":
     main()

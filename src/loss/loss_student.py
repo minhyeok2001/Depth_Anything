@@ -61,8 +61,49 @@ class Loss_student(nn.Module):
         denominator = torch.mul(size, frozen_size) + self.eps  # 차원: B x num_patch
         loss_feat = 1 - torch.mean((dot_product / denominator))
         return loss_feat
+    
+    def _cca_loss(self,encoder_result, frozen_encoder_result):
+        batch_size = encoder_result.size(0)
+        total_corr = 0.0
 
-    def forward(self, pred, y, len_data, disparity=True ,frozen_encoder_result=None, encoder_result=None):
+        for i in range(batch_size):
+            h1 = encoder_result[i]
+            h2 = frozen_encoder_result[i]
+
+            h1 = h1 - h1.mean(dim=0, keepdim=True)
+            h2 = h2 - h2.mean(dim=0, keepdim=True)
+
+            m = h1.size(0) 
+
+            reg_param = 1e-3 # 경험적으로 1e-3 을 쓴다고 함 
+
+            sigma11 = (h1.t() @ h1) / (m - 1) + reg_param * torch.eye(h1.size(1), device=h1.device)
+            sigma22 = (h2.t() @ h2) / (m - 1) + reg_param * torch.eye(h2.size(1), device=h2.device)
+            sigma12 = (h1.t() @ h2) / (m - 1)
+
+            D1, V1 = torch.linalg.eigh(sigma11)
+            D2, V2 = torch.linalg.eigh(sigma22)
+
+            new_eps = 1e-12
+            D1_inv_sqrt = torch.where(D1 > new_eps, 1.0 / torch.sqrt(D1), torch.zeros_like(D1))
+            D2_inv_sqrt = torch.where(D2 > new_eps, 1.0 / torch.sqrt(D2), torch.zeros_like(D2))
+
+            sigma11_inv_sqrt = (V1 * D1_inv_sqrt.unsqueeze(0)) @ V1.t()
+            sigma22_inv_sqrt = (V2 * D2_inv_sqrt.unsqueeze(0)) @ V2.t()
+
+            T = sigma11_inv_sqrt @ sigma12 @ sigma22_inv_sqrt
+
+            U, S, Vt = torch.linalg.svd(T)
+
+            corr = S.sum()
+
+            total_corr += corr
+
+        avg_corr = total_corr / batch_size
+        loss = -avg_corr
+        return loss
+
+    def forward(self, pred, y, len_data, disparity=True , cca = False, frozen_encoder_result=None, encoder_result=None):
         """
         :param pred: Prediction per pixel. size : BxHxW
         :param y: Ground truth. size : BxHxW
@@ -155,15 +196,20 @@ class Loss_student(nn.Module):
 
         ## 이제 labeled dataset도 빼고, 나머지 3할에 대한 부분에 feature_alignment 적용 !!
 
-        ## 결국 인코더 결과도 B x num_patch x embedding_dim 꼴이어야 함.
-        if encoder_result is None or frozen_encoder_result is None:
-            raise ValueError("cos -> encoder 결과 필요")
-        loss_feat = self._cosine_loss(encoder_result, frozen_encoder_result)
-        if loss_feat < (1-self.threshold):
-            loss_feat=0
-            print("feature_loss skipped!!")
+        if cca :
+            loss_feat = self._cca_loss(encoder_result,frozen_encoder_result)
+            return loss_l + loss_u + loss_feat
 
-        return loss_l + loss_u + loss_feat
+        else :
+        ## 결국 인코더 결과도 B x num_patch x embedding_dim 꼴이어야 함.
+            if encoder_result is None or frozen_encoder_result is None:
+                raise ValueError("cos -> encoder 결과 필요")
+            loss_feat = self._cosine_loss(encoder_result, frozen_encoder_result)
+            if loss_feat < (1-self.threshold):
+                loss_feat=0
+                print("feature_loss skipped!!")
+
+            return loss_l + loss_u + loss_feat
 
 
 """
