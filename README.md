@@ -4,12 +4,10 @@
 
 2. Basic Teacher & Student Result 
    
-3. Idea application on Depth Anything
+3. Idea application on Depth Anything -> To Be Implemented
    - _Is margin for feature alignment loss necessary?_
-       -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 
-4. Ablation study
-   
+     -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 ---
 
 Original paper & code
@@ -91,16 +89,13 @@ Avg AbsRel: 0.0692
 
 Avg Delta1: 0.9458
 
+-> Avg of 3 trials
 ![teacher_1st](image/hola1.png)
 ![teacher_2nd](image/hola2.png)
 
-
-
 ---
 
----
-
-## 3. Idea Application - Canonical Correlation Analysis with semantic information from depth map
+## 3. Idea Application - Canonical Correlation Analysis with semantic information from depth map -> To Be Implemented,..
 
 **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 
@@ -112,13 +107,4 @@ Avg Delta1: 0.9458
    -> Why don't we just use **_semantic information from depth map_** rather than RGB map?
   
    -> Let's use fintuned DINOv2 to use feature alignment loss
-
-  
----
-
-
-## 4. Ablation study
-
-
----
 
