@@ -1,13 +1,9 @@
-# Depth_Anything
+# Depth Anything
 
 1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process with metrics**
 
 2. Basic Teacher & Student Result 
-   
-3. Idea application on Depth Anything -> To Be Implemented
-   - _Is margin for feature alignment loss necessary?_
 
-     -> **_What if we conduct feature alignment using embeddings derived from the depth map input?_**
 ---
 
 Original paper & code
@@ -94,17 +90,3 @@ Avg Delta1: 0.9458
 ![teacher_2nd](image/hola2.png)
 
 ---
-
-## 3. Idea Application - Canonical Correlation Analysis with semantic information from depth map -> To Be Implemented,..
-
-**_What if we conduct feature alignment using embeddings derived from the depth map input?_**
-
-< Basic idea >
-
-- Feature alignment loss on Depth Anything model targets to learn semantic information from frozen DINOv2 encoder per patch
-- margin α is to prevent overwhelming semantic information rather than depth information
-
-   -> Why don't we just use **_semantic information from depth map_** rather than RGB map?
-  
-   -> Let's use fintuned DINOv2 to use feature alignment loss
-
