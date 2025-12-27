@@ -1,9 +1,6 @@
 # Depth Anything
 
 1. Complete Depth Anything Code including **Data Preprocessing, Loss Functions, and Training Process with metrics**
-
-2. Basic Teacher & Student Result 
-
 ---
 
 Original paper & code
@@ -75,17 +72,21 @@ python -m src.predict (--teacher or --student)
 ```
 
 ---
-## 2. Basic Teacher & Student Result 
+## 2. Teacher Result 
 
-### < Teacher >
+Evaluation of the teacher model on the validation set:
 
-Avg Validation Loss: 0.2292
+<table>
+  <tr>
+    <th>AbsRel</th>
+    <th>Delta1</th>
+  </tr>
+  <tr>
+    <th>0.0692</th>
+    <th>0.9458</th>
+  </tr>
+</table>
 
-Avg AbsRel: 0.0692
-
-Avg Delta1: 0.9458
-
--> Avg of 3 trials
 ![teacher_1st](image/hola1.png)
 ![teacher_2nd](image/hola2.png)
 
